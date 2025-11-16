@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="db31808Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Carrito">
+    <Key>
+      <PropertyRef Name="id_carrito" />
+    </Key>
+    <Property Name="id_carrito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="fecha_creacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Carrito__id_usua__48CFD27E" FromRole="Carrito" ToRole="Usuario" />
+    <NavigationProperty Name="CarritoItem" Relationship="Self.FK__CarritoIt__id_ca__4CA06362" FromRole="Carrito" ToRole="CarritoItem" />
+  </EntityType>
+  <EntityType Name="CarritoItem">
+    <Key>
+      <PropertyRef Name="id_item" />
+    </Key>
+    <Property Name="id_item" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_carrito" Type="Int32" Nullable="false" />
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
+    <Property Name="fecha_inicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Carrito" Relationship="Self.FK__CarritoIt__id_ca__4CA06362" FromRole="CarritoItem" ToRole="Carrito" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__CarritoIt__id_ve__4D94879B" FromRole="CarritoItem" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="CategoriaVehiculo">
+    <Key>
+      <PropertyRef Name="id_categoria" />
+    </Key>
+    <Property Name="id_categoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Vehiculo__id_cat__3F466844" FromRole="CategoriaVehiculo" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="DetalleFactura">
+    <Key>
+      <PropertyRef Name="id_detalle" />
+    </Key>
+    <Property Name="id_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_factura" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cantidad" Type="Int32" Nullable="false" />
+    <Property Name="precio_unitario" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="subtotal" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK__DetalleFa__id_fa__5EBF139D" FromRole="DetalleFactura" ToRole="Factura" />
+  </EntityType>
+  <EntityType Name="Factura">
+    <Key>
+      <PropertyRef Name="id_factura" />
+    </Key>
+    <Property Name="id_factura" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_reserva" Type="Int32" Nullable="false" />
+    <Property Name="uri_factura" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_emision" Type="DateTime" Precision="3" />
+    <Property Name="valor_total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="DetalleFactura" Relationship="Self.FK__DetalleFa__id_fa__5EBF139D" FromRole="Factura" ToRole="DetalleFactura" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK__Factura__id_rese__5AEE82B9" FromRole="Factura" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Hold">
+    <Key>
+      <PropertyRef Name="id_hold" />
+    </Key>
+    <Property Name="id_hold" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
+    <Property Name="fecha_inicio" Type="DateTime" Precision="3" />
+    <Property Name="fecha_expiracion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="monto_bloqueado" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="referencia_banco" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Hold__id_usuario__628FA481" FromRole="Hold" ToRole="Usuario" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Hold__id_vehicul__6383C8BA" FromRole="Hold" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="ImagenVehiculo">
+    <Key>
+      <PropertyRef Name="id_imagen" />
+    </Key>
+    <Property Name="id_imagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
+    <Property Name="uri_imagen" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__ImagenVeh__id_ve__440B1D61" FromRole="ImagenVehiculo" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="Pago">
+    <Key>
+      <PropertyRef Name="id_pago" />
+    </Key>
+    <Property Name="id_pago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_reserva" Type="Int32" Nullable="false" />
+    <Property Name="metodo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="monto" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="fecha_pago" Type="DateTime" Precision="3" />
+    <Property Name="referencia_externa" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK__Pago__id_reserva__5629CD9C" FromRole="Pago" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Promocion">
+    <Key>
+      <PropertyRef Name="id_promocion" />
+    </Key>
+    <Property Name="id_promocion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="porcentaje_descuento" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="fecha_inicio" Type="DateTime" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Vehiculo" Relationship="db31808Model.FK__Vehiculo__id_pro__6B24EA82" FromRole="Promocion" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="Reserva">
+    <Key>
+      <PropertyRef Name="id_reserva" />
+    </Key>
+    <Property Name="id_reserva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" />
+    <Property Name="fecha_inicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fecha_fin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="total" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="fecha_reserva" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Factura" Relationship="Self.FK__Factura__id_rese__5AEE82B9" FromRole="Reserva" ToRole="Factura" />
+    <NavigationProperty Name="Pago" Relationship="Self.FK__Pago__id_reserva__5629CD9C" FromRole="Reserva" ToRole="Pago" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Reserva__id_usua__5070F446" FromRole="Reserva" ToRole="Usuario" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Reserva__id_vehi__5165187F" FromRole="Reserva" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="Sucursal">
+    <Key>
+      <PropertyRef Name="id_sucursal" />
+    </Key>
+    <Property Name="id_sucursal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pais" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK__Vehiculo__id_suc__412EB0B6" FromRole="Sucursal" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contrasena" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="pais" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="tipo_identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="rol" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Carrito" Relationship="Self.FK__Carrito__id_usua__48CFD27E" FromRole="Usuario" ToRole="Carrito" />
+    <NavigationProperty Name="Hold" Relationship="Self.FK__Hold__id_usuario__628FA481" FromRole="Usuario" ToRole="Hold" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__id_usua__5070F446" FromRole="Usuario" ToRole="Reserva" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="id_vehiculo" />
+    </Key>
+    <Property Name="id_vehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="marca" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="modelo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="anio" Type="Int32" Nullable="false" />
+    <Property Name="id_categoria" Type="Int32" Nullable="false" />
+    <Property Name="transmision" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="capacidad" Type="Int32" />
+    <Property Name="precio_dia" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="id_sucursal" Type="Int32" />
+    <NavigationProperty Name="CarritoItem" Relationship="Self.FK__CarritoIt__id_ve__4D94879B" FromRole="Vehiculo" ToRole="CarritoItem" />
+    <NavigationProperty Name="CategoriaVehiculo" Relationship="Self.FK__Vehiculo__id_cat__3F466844" FromRole="Vehiculo" ToRole="CategoriaVehiculo" />
+    <NavigationProperty Name="Hold" Relationship="Self.FK__Hold__id_vehicul__6383C8BA" FromRole="Vehiculo" ToRole="Hold" />
+    <NavigationProperty Name="ImagenVehiculo" Relationship="Self.FK__ImagenVeh__id_ve__440B1D61" FromRole="Vehiculo" ToRole="ImagenVehiculo" />
+    <NavigationProperty Name="Reserva" Relationship="Self.FK__Reserva__id_vehi__5165187F" FromRole="Vehiculo" ToRole="Reserva" />
+    <NavigationProperty Name="Sucursal" Relationship="Self.FK__Vehiculo__id_suc__412EB0B6" FromRole="Vehiculo" ToRole="Sucursal" />
+    <Property Name="id_transmision" Type="Int32" />
+    <NavigationProperty Name="TipoTransmision" Relationship="db31808Model.FK_Vehiculo_TipoTransmision" FromRole="Vehiculo" ToRole="TipoTransmision" />
+    <Property Name="matricula" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="id_promocion" Type="Int32" />
+    <Property Name="precio_normal" Type="Decimal" Nullable="false" Precision="10" Scale="2" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="precio_actual" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Promocion" Relationship="db31808Model.FK__Vehiculo__id_pro__6B24EA82" FromRole="Vehiculo" ToRole="Promocion" />
+  </EntityType>
+  <Association Name="FK__Carrito__id_usua__48CFD27E">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Carrito" Type="Self.Carrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Carrito">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarritoIt__id_ca__4CA06362">
+    <End Role="Carrito" Type="Self.Carrito" Multiplicity="1" />
+    <End Role="CarritoItem" Type="Self.CarritoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Carrito">
+        <PropertyRef Name="id_carrito" />
+      </Principal>
+      <Dependent Role="CarritoItem">
+        <PropertyRef Name="id_carrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CarritoIt__id_ve__4D94879B">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+    <End Role="CarritoItem" Type="Self.CarritoItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="id_vehiculo" />
+      </Principal>
+      <Dependent Role="CarritoItem">
+        <PropertyRef Name="id_vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehiculo__id_cat__3F466844">
+    <End Role="CategoriaVehiculo" Type="Self.CategoriaVehiculo" Multiplicity="1" />
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriaVehiculo">
+        <PropertyRef Name="id_categoria" />
+      </Principal>
+      <Dependent Role="Vehiculo">
+        <PropertyRef Name="id_categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetalleFa__id_fa__5EBF139D">
+    <End Role="Factura" Type="Self.Factura" Multiplicity="1" />
+    <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Factura">
+        <PropertyRef Name="id_factura" />
+      </Principal>
+      <Dependent Role="DetalleFactura">
+        <PropertyRef Name="id_factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Factura__id_rese__5AEE82B9">
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="1" />
+    <End Role="Factura" Type="Self.Factura" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reserva">
+        <PropertyRef Name="id_reserva" />
+      </Principal>
+      <Dependent Role="Factura">
+        <PropertyRef Name="id_reserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hold__id_usuario__628FA481">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Hold" Type="Self.Hold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Hold">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Hold__id_vehicul__6383C8BA">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+    <End Role="Hold" Type="Self.Hold" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="id_vehiculo" />
+      </Principal>
+      <Dependent Role="Hold">
+        <PropertyRef Name="id_vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ImagenVeh__id_ve__440B1D61">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+    <End Role="ImagenVehiculo" Type="Self.ImagenVehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="id_vehiculo" />
+      </Principal>
+      <Dependent Role="ImagenVehiculo">
+        <PropertyRef Name="id_vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pago__id_reserva__5629CD9C">
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="1" />
+    <End Role="Pago" Type="Self.Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reserva">
+        <PropertyRef Name="id_reserva" />
+      </Principal>
+      <Dependent Role="Pago">
+        <PropertyRef Name="id_reserva" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reserva__id_usua__5070F446">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reserva__id_vehi__5165187F">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+    <End Role="Reserva" Type="Self.Reserva" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="id_vehiculo" />
+      </Principal>
+      <Dependent Role="Reserva">
+        <PropertyRef Name="id_vehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehiculo__id_suc__412EB0B6">
+    <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sucursal">
+        <PropertyRef Name="id_sucursal" />
+      </Principal>
+      <Dependent Role="Vehiculo">
+        <PropertyRef Name="id_sucursal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="db31808Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carrito" EntityType="Self.Carrito" />
+    <EntitySet Name="CarritoItem" EntityType="Self.CarritoItem" />
+    <EntitySet Name="CategoriaVehiculo" EntityType="Self.CategoriaVehiculo" />
+    <EntitySet Name="DetalleFactura" EntityType="Self.DetalleFactura" />
+    <EntitySet Name="Factura" EntityType="Self.Factura" />
+    <EntitySet Name="Hold" EntityType="Self.Hold" />
+    <EntitySet Name="ImagenVehiculo" EntityType="Self.ImagenVehiculo" />
+    <EntitySet Name="Pago" EntityType="Self.Pago" />
+    <EntitySet Name="Promocion" EntityType="Self.Promocion" />
+    <EntitySet Name="Reserva" EntityType="Self.Reserva" />
+    <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
+    <AssociationSet Name="FK__Carrito__id_usua__48CFD27E" Association="Self.FK__Carrito__id_usua__48CFD27E">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Carrito" EntitySet="Carrito" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarritoIt__id_ca__4CA06362" Association="Self.FK__CarritoIt__id_ca__4CA06362">
+      <End Role="Carrito" EntitySet="Carrito" />
+      <End Role="CarritoItem" EntitySet="CarritoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CarritoIt__id_ve__4D94879B" Association="Self.FK__CarritoIt__id_ve__4D94879B">
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+      <End Role="CarritoItem" EntitySet="CarritoItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehiculo__id_cat__3F466844" Association="Self.FK__Vehiculo__id_cat__3F466844">
+      <End Role="CategoriaVehiculo" EntitySet="CategoriaVehiculo" />
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetalleFa__id_fa__5EBF139D" Association="Self.FK__DetalleFa__id_fa__5EBF139D">
+      <End Role="Factura" EntitySet="Factura" />
+      <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Factura__id_rese__5AEE82B9" Association="Self.FK__Factura__id_rese__5AEE82B9">
+      <End Role="Reserva" EntitySet="Reserva" />
+      <End Role="Factura" EntitySet="Factura" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hold__id_usuario__628FA481" Association="Self.FK__Hold__id_usuario__628FA481">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Hold" EntitySet="Hold" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Hold__id_vehicul__6383C8BA" Association="Self.FK__Hold__id_vehicul__6383C8BA">
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+      <End Role="Hold" EntitySet="Hold" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ImagenVeh__id_ve__440B1D61" Association="Self.FK__ImagenVeh__id_ve__440B1D61">
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+      <End Role="ImagenVehiculo" EntitySet="ImagenVehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pago__id_reserva__5629CD9C" Association="Self.FK__Pago__id_reserva__5629CD9C">
+      <End Role="Reserva" EntitySet="Reserva" />
+      <End Role="Pago" EntitySet="Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reserva__id_usua__5070F446" Association="Self.FK__Reserva__id_usua__5070F446">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reserva__id_vehi__5165187F" Association="Self.FK__Reserva__id_vehi__5165187F">
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+      <End Role="Reserva" EntitySet="Reserva" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehiculo__id_suc__412EB0B6" Association="Self.FK__Vehiculo__id_suc__412EB0B6">
+      <End Role="Sucursal" EntitySet="Sucursal" />
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+    </AssociationSet>
+    <EntitySet Name="TipoTransmision" EntityType="db31808Model.TipoTransmision" />
+    <AssociationSet Name="FK_Vehiculo_TipoTransmision" Association="db31808Model.FK_Vehiculo_TipoTransmision">
+      <End Role="TipoTransmision" EntitySet="TipoTransmision" />
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vehiculo__id_pro__6B24EA82" Association="db31808Model.FK__Vehiculo__id_pro__6B24EA82">
+      <End Role="Promocion" EntitySet="Promocion" />
+      <End Role="Vehiculo" EntitySet="Vehiculo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="TipoTransmision">
+    <Key>
+      <PropertyRef Name="id_transmision" />
+    </Key>
+    <Property Name="id_transmision" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vehiculo" Relationship="db31808Model.FK_Vehiculo_TipoTransmision" FromRole="TipoTransmision" ToRole="Vehiculo" />
+  </EntityType>
+  <Association Name="FK_Vehiculo_TipoTransmision">
+    <End Type="db31808Model.TipoTransmision" Role="TipoTransmision" Multiplicity="0..1" />
+    <End Type="db31808Model.Vehiculo" Role="Vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoTransmision">
+        <PropertyRef Name="id_transmision" />
+      </Principal>
+      <Dependent Role="Vehiculo">
+        <PropertyRef Name="id_transmision" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vehiculo__id_pro__6B24EA82">
+    <End Type="db31808Model.Promocion" Role="Promocion" Multiplicity="0..1" />
+    <End Type="db31808Model.Vehiculo" Role="Vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Promocion">
+        <PropertyRef Name="id_promocion" />
+      </Principal>
+      <Dependent Role="Vehiculo">
+        <PropertyRef Name="id_promocion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

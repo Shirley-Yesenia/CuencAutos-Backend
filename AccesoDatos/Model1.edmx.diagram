@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb107de5d07a430b95861dff9a33d2cf" Name="Diagram1">
+        <EntityTypeShape EntityType="db31808Model.Carrito" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.CarritoItem" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.CategoriaVehiculo" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.DetalleFactura" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.Factura" Width="1.5" PointX="7.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.Hold" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.ImagenVehiculo" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.Pago" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.Promocion" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.Reserva" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.Sucursal" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.Usuario" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db31808Model.Vehiculo" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="db31808Model.FK__Carrito__id_usua__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__CarritoIt__id_ca__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__CarritoIt__id_ve__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__Vehiculo__id_cat__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__DetalleFa__id_fa__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__Factura__id_rese__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__Hold__id_usuario__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__Hold__id_vehicul__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__ImagenVeh__id_ve__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__Pago__id_reserva__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__Reserva__id_usua__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__Reserva__id_vehi__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="db31808Model.FK__Vehiculo__id_suc__412EB0B6" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db31808Model.TipoTransmision" Width="1.5" PointX="10.375" PointY="8.75" />
+        <AssociationConnector Association="db31808Model.FK_Vehiculo_TipoTransmision" />
+        <AssociationConnector Association="db31808Model.FK__Vehiculo__id_pro__6B24EA82" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -12,7 +12,7 @@ namespace API_REST_INTEGRACION.Controllers
     // 🔹 Controlador REST + CORS habilitado
     // ================================================================
     [EnableCors(origins: "*", headers: "*", methods: "*")]   // ← CORS ACTIVADO
-    [RoutePrefix("api/integracion/autos/reservas")]
+    [RoutePrefix("api/v1/integracion/autos/reservas")]
     public class IntegracionReservasController : ApiController
     {
         private readonly ReservaDatos _reservas = new ReservaDatos();

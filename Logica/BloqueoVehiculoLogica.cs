@@ -32,5 +32,14 @@ namespace Logica
 
             return datos.EliminarBloqueo(idHold);
         }
+
+        // 🔵 MÉTODO FALTANTE
+        public BloqueoVehiculoDto ObtenerBloqueo(int idHold)
+        {
+            if (idHold <= 0)
+                throw new ArgumentException("El ID del bloqueo debe ser válido.");
+
+            return datos.ObtenerBloqueo(idHold);
+        }
     }
 }

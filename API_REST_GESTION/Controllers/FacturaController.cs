@@ -8,7 +8,7 @@ using AccesoDatos.DTO;
 namespace API_REST_GESTION.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/facturas")]
+    [RoutePrefix("api/v1/facturas")]
     public class FacturaController : ApiController
     {
         private readonly FacturaLogica logica = new FacturaLogica();

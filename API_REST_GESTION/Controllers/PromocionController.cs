@@ -8,7 +8,7 @@ using AccesoDatos.DTO;
 namespace API_REST_GESTION.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/promociones")]
+    [RoutePrefix("api/v1/promociones")]
     public class PromocionController : ApiController
     {
         private readonly PromocionLogica logica = new PromocionLogica();

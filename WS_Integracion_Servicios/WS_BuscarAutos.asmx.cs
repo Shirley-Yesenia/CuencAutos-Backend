@@ -10,7 +10,7 @@ namespace WS_Integracion_Servicios
 {
     [WebService(Namespace = "http://rentaautos.ec/integracion")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    public class WS_Integracion : WebService
+    public class WS_BuscarAutos : WebService
     {
         private readonly VehiculoDatos _vehiculos = new VehiculoDatos();
         private readonly ImagenVehiculoDatos _imagenes = new ImagenVehiculoDatos();

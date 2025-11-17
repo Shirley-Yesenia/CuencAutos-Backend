@@ -75,11 +75,11 @@
   <ItemGroup>
     <Content Include="WS_BuscarDatos.asmx" />
     <Content Include="WS_FacturaIntegracion.asmx" />
-    <Content Include="WS_IntegracionAutos.asmx" />
+    <Content Include="WS_DisponibilidadAutos.asmx" />
     <Content Include="Web.config" />
-    <Content Include="WS_Integracion.asmx" />
-    <Content Include="WS_Integracion_Servicio.asmx" />
-    <Content Include="WS_Integracion_Servicios.asmx" />
+    <Content Include="WS_BuscarAutos.asmx" />
+    <Content Include="WS_PreReserva.asmx" />
+    <Content Include="WS_ReservarAutos.asmx" />
     <Content Include="WS_UsuarioExterno.asmx" />
   </ItemGroup>
   <ItemGroup>
@@ -91,21 +91,21 @@
       <DependentUpon>WS_FacturaIntegracion.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WS_IntegracionAutos.asmx.cs">
-      <DependentUpon>WS_IntegracionAutos.asmx</DependentUpon>
+    <Compile Include="WS_DisponibilidadAutos.asmx.cs">
+      <DependentUpon>WS_DisponibilidadAutos.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WS_Integracion.asmx.cs">
-      <DependentUpon>WS_Integracion.asmx</DependentUpon>
+    <Compile Include="WS_BuscarAutos.asmx.cs">
+      <DependentUpon>WS_BuscarAutos.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WS_Integracion_Servicio.asmx.cs">
-      <DependentUpon>WS_Integracion_Servicio.asmx</DependentUpon>
+    <Compile Include="WS_PreReserva.asmx.cs">
+      <DependentUpon>WS_PreReserva.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WS_Integracion_Servicios.asmx.cs">
-      <DependentUpon>WS_Integracion_Servicios.asmx</DependentUpon>
+    <Compile Include="WS_ReservarAutos.asmx.cs">
+      <DependentUpon>WS_ReservarAutos.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WS_UsuarioExterno.asmx.cs">

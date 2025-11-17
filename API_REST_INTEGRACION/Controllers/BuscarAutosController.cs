@@ -8,7 +8,7 @@ using Datos;
 namespace API_REST_INTEGRACION.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]   // 🔥 CORS HABILITADO
-    [RoutePrefix("api/integracion/autos")]
+    [RoutePrefix("api/v1/integracion/autos")]
     public class IntegracionAutosController : ApiController
     {
         private readonly VehiculoDatos _vehiculos = new VehiculoDatos();

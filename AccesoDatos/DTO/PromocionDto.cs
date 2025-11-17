@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.DTO
 {
-    public class PromocionDto
+    public class PromocionDto : HateoasResource
     {
         public int IdPromocion { get; set; }
         public string Nombre { get; set; }

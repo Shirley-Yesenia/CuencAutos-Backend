@@ -12,7 +12,7 @@ namespace API_REST_INTEGRACION.Controllers
         // 🔹 POST: /api/integracion/autos/invoices
         // ================================================================
         [HttpPost]
-        [Route("api/integracion/autos/invoices")]
+        [Route("api/v1/integracion/autos/invoices")]
         public IHttpActionResult EmitirFactura([FromBody] FacturaOrquestadorDto dto)
         {
             // ✅ Validaciones básicas

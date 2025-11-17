@@ -71,8 +71,10 @@
     <Compile Include="DTO\CategoriaVehiculoDto.cs" />
     <Compile Include="DTO\DetalleFacturaDto.cs" />
     <Compile Include="DTO\FacturaDto.cs" />
+    <Compile Include="DTO\HateoasResource.cs" />
     <Compile Include="DTO\HoldDto.cs" />
     <Compile Include="DTO\ImagenVehiculoDto.cs" />
+    <Compile Include="DTO\LinkDto.cs" />
     <Compile Include="DTO\PagoDto.cs" />
     <Compile Include="DTO\PreReservaAutoRequestDTO.cs" />
     <Compile Include="DTO\PreReservaAutoResponseDTO.cs" />

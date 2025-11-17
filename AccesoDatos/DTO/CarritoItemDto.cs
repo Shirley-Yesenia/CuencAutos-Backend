@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.DTO
 {
-    public class CarritoItemDto
+    public class CarritoItemDto : HateoasResource
     {
         public int IdItem { get; set; }
         public int IdCarrito { get; set; }

@@ -6,7 +6,7 @@ namespace WS_Integracion_Servicios
 {
     [WebService(Namespace = "http://integracion.rentaautos.com/booking")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
-    public class IntegracionAutos : WebService
+    public class WS_DisponibilidadAutos : WebService
     {
         private readonly ReservaLogica _reservaLN = new ReservaLogica();
 

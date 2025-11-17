@@ -8,7 +8,7 @@ using AccesoDatos.DTO;
 namespace API_REST_GESTION.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/imagenes")]
+    [RoutePrefix("api/v1/imagenes")]
     public class ImagenController : ApiController
     {
         private readonly ImagenVehiculoLogica logica = new ImagenVehiculoLogica();

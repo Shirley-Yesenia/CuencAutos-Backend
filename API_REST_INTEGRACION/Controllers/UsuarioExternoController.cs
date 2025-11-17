@@ -8,7 +8,7 @@ namespace API_REST_INTEGRACION.Controllers
     public class UsuarioExternoController : ApiController
     {
         [HttpPost]
-        [Route("api/integracion/autos/usuarios/externo")]
+        [Route("api/v1/integracion/autos/usuarios/externo")]
         public IHttpActionResult Post(HttpRequestMessage request)
         {
             try

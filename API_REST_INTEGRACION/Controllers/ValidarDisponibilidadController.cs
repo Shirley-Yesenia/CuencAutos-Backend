@@ -14,7 +14,7 @@ namespace API_REST_INTEGRACION.Controllers
         // 🔹 POST: /api/integracion/autos/availability
         // ================================================================
         [HttpPost]
-        [Route("api/integracion/autos/availability")]
+        [Route("api/v1/integracion/autos/availability")]
         public IHttpActionResult ValidarDisponibilidad([FromBody] ValidarDisponibilidadDto dto)
         {
             if (dto == null)

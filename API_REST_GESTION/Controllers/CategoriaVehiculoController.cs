@@ -8,7 +8,7 @@ using AccesoDatos.DTO;
 namespace API_REST_GESTION.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/categoriasvehiculo")]
+    [RoutePrefix("api/v1/categoriasvehiculo")]
     public class CategoriaVehiculoController : ApiController
     {
         private readonly CategoriaVehiculoLogica ln = new CategoriaVehiculoLogica();

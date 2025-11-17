@@ -13,7 +13,7 @@ namespace API_REST_INTEGRACION.Controllers
     public class ReservaIntegracionController : ApiController
     {
         [HttpPost]
-        [Route("api/integracion/autos/book")]
+        [Route("api/v1/integracion/autos/book")]
         public IHttpActionResult Post(HttpRequestMessage request)
         {
             try

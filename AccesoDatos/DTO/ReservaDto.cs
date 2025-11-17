@@ -1,6 +1,7 @@
-﻿using System;
+﻿using AccesoDatos.DTO;
+using System;
 
-public class ReservaDto
+public class ReservaDto : HateoasResource
 {
     public int IdReserva { get; set; }
     public int IdUsuario { get; set; }
@@ -19,4 +20,6 @@ public class ReservaDto
     public string UriFactura { get; set; }
     public string UsuarioCorreo { get; set; }
     // nuevo
+
 }
+

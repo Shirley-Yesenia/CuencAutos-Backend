@@ -2,7 +2,7 @@
 
 namespace AccesoDatos.DTO
 {
-    public class VehiculoDto
+    public class VehiculoDto : HateoasResource
     {
         public int IdVehiculo { get; set; }
         public string Marca { get; set; }

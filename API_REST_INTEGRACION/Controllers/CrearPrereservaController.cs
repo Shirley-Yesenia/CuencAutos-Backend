@@ -9,7 +9,7 @@ namespace API_REST_INTEGRACION.Controllers
 {
     // HABILITAR CORS PARA ESTE CONTROLADOR
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/integracion/autos")]
+    [RoutePrefix("api/v1/integracion/autos")]
     public class IntegracionHoldController : ApiController
     {
         private readonly IntegracionAutosLogica _ln = new IntegracionAutosLogica();

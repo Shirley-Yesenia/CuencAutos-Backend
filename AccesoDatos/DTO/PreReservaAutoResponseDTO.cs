@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos.DTO
 {
-    public class PreReservaAutoResponseDto
+    public class PreReservaAutoResponseDto : HateoasResource
     {
         public string IdHold { get; set; }
         public System.DateTime FechaExpiracion { get; set; }

@@ -58,5 +58,24 @@ namespace Datos
             _context.SaveChanges();
             return true;
         }
+        // 🔍 OBTENER BLOQUEO POR ID
+        public BloqueoVehiculoDto ObtenerBloqueo(int idHold)
+        {
+            var h = _context.Hold.FirstOrDefault(x => x.id_hold == idHold);
+            if (h == null) return null;
+
+            return new BloqueoVehiculoDto
+            {
+                IdHold = h.id_hold,
+                IdUsuario = h.id_usuario,
+                IdVehiculo = h.id_vehiculo,
+                FechaInicio = h.fecha_inicio,
+                FechaExpiracion = h.fecha_expiracion,
+                MontoBloqueado = h.monto_bloqueado,
+                ReferenciaBanco = h.referencia_banco,
+                Estado = h.estado
+            };
+        }
+
     }
 }

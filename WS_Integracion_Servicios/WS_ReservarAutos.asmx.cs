@@ -12,7 +12,7 @@ namespace WS_Integracion_Servicios
     [WebService(Namespace = "http://integracion.rentaautos.com.ec/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    public class WS_Integracion_Servicios : System.Web.Services.WebService
+    public class WS_ReservarAutos : System.Web.Services.WebService
     {
         [WebMethod(Description = "Crea una reserva de auto a partir de un Hold activo.")]
         public ReservaDto ReservarAuto(

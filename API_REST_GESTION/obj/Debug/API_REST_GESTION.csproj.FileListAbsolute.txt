@@ -60,6 +60,7 @@ C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutos
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\Newtonsoft.Json.Bson.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\Newtonsoft.Json.dll
+C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\Swashbuckle.Core.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\System.Buffers.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\System.Memory.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\System.Net.Http.Formatting.dll
@@ -77,6 +78,7 @@ C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutos
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\System.Web.WebPages.Deployment.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\System.Web.WebPages.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\System.Web.WebPages.Razor.dll
+C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\WebActivatorEx.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\WebGrease.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\AccesoDatos.pdb
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_GESTION\bin\AccesoDatos.dll.config

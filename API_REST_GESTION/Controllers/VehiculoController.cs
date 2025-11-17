@@ -9,14 +9,14 @@ using System.Web.Http.Cors;
 namespace API_REST_GESTION.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/vehiculos")]
+    [RoutePrefix("api/v1/vehiculos")]
     public class VehiculoController : ApiController
     {
         private readonly VehiculoLogica _logica = new VehiculoLogica();
         private readonly ImagenVehiculoDatos _imgDatos = new ImagenVehiculoDatos();
 
         [HttpGet]
-        [Route("")]
+        [Route("", Name = "GetVehiculos")]
         public IHttpActionResult ObtenerVehiculos()
         {
             try
@@ -38,7 +38,7 @@ namespace API_REST_GESTION.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{id:int}", Name = "GetVehiculoById")]
         public IHttpActionResult ObtenerVehiculoPorId(int id)
         {
             try
@@ -58,7 +58,7 @@ namespace API_REST_GESTION.Controllers
         }
 
         [HttpPost]
-        [Route("")]
+        [Route("", Name = "CreateVehiculo")]
         public IHttpActionResult CrearVehiculo([FromBody] VehiculoDto vehiculo)
         {
             try
@@ -78,7 +78,7 @@ namespace API_REST_GESTION.Controllers
         }
 
         [HttpPut]
-        [Route("{id:int}")]
+        [Route("{id:int}", Name = "UpdateVehiculo")]
         public IHttpActionResult ActualizarVehiculo(int id, [FromBody] VehiculoDto vehiculo)
         {
             try
@@ -101,7 +101,7 @@ namespace API_REST_GESTION.Controllers
         }
 
         [HttpDelete]
-        [Route("{id:int}")]
+        [Route("{id:int}", Name = "DeleteVehiculo")]
         public IHttpActionResult EliminarVehiculo(int id)
         {
             try
@@ -119,7 +119,7 @@ namespace API_REST_GESTION.Controllers
         }
 
         [HttpGet]
-        [Route("buscar")]
+        [Route("buscar", Name = "BuscarVehiculos")]
         public IHttpActionResult BuscarVehiculos(string categoria = null, string transmision = null, string estado = null)
         {
             try
@@ -133,6 +133,22 @@ namespace API_REST_GESTION.Controllers
                 }
 
                 return Ok(vehiculos);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+        // ruta necesaria para HATEOAS (las imágenes)
+        [HttpGet]
+        [Route("{id:int}/imagenes", Name = "GetImagenesPorVehiculo")]
+        public IHttpActionResult ObtenerImagenesVehiculo(int id)
+        {
+            try
+            {
+                var imagenes = _imgDatos.ListarPorVehiculo(id);
+                return Ok(imagenes);
             }
             catch (Exception ex)
             {

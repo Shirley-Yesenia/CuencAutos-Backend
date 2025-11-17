@@ -2,7 +2,7 @@
 
 namespace AccesoDatos.DTO
 {
-    public class BloqueoVehiculoDto
+    public class BloqueoVehiculoDto : HateoasResource
     {
         public int IdHold { get; set; }
         public int IdUsuario { get; set; }

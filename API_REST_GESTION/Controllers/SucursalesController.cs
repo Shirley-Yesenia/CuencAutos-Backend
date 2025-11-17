@@ -6,7 +6,7 @@ using AccesoDatos.DTO;
 namespace API_REST_GESTION.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [RoutePrefix("api/sucursales")]
+    [RoutePrefix("api/v1/sucursales")]
     public class SucursalesController : ApiController
     {
         private readonly SucursalLogica _ln = new SucursalLogica();

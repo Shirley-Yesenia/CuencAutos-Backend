@@ -5,28 +5,37 @@ using System;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.Routing;
+using API_REST_GESTION.Hateoas.Builders;
 
 namespace API_REST_GESTION.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/v1/vehiculos")]
     public class VehiculoController : ApiController
     {
         private readonly VehiculoLogica _logica = new VehiculoLogica();
         private readonly ImagenVehiculoDatos _imgDatos = new ImagenVehiculoDatos();
+        private readonly VehiculoHateoas _hateoas = new VehiculoHateoas();
 
-        [HttpGet]
-        [Route("", Name = "GetVehiculos")]
+        // ================================================================
+        // GET: api/v1/vehiculos
+        // ================================================================
+        
+        [HttpGet, Route("", Name = "GetVehiculos")]
         public IHttpActionResult ObtenerVehiculos()
         {
             try
             {
                 var vehiculos = _logica.ListarVehiculos();
 
+                var url = new UrlHelper(Request);
+
                 foreach (var v in vehiculos)
                 {
                     var img = _imgDatos.ListarPorVehiculo(v.IdVehiculo).FirstOrDefault();
                     v.UrlImagen = img?.UriImagen;
+
+                    _hateoas.GenerarLinks(v, url);
                 }
 
                 return Ok(vehiculos);
@@ -37,8 +46,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("{id:int}", Name = "GetVehiculoById")]
+        // ================================================================
+        // GET: api/v1/vehiculos/{id}
+        // ================================================================
+        
+        [HttpGet, Route("{id:int}", Name = "GetVehiculoById")]
         public IHttpActionResult ObtenerVehiculoPorId(int id)
         {
             try
@@ -49,6 +61,9 @@ namespace API_REST_GESTION.Controllers
                 var img = _imgDatos.ListarPorVehiculo(id).FirstOrDefault();
                 vehiculo.UrlImagen = img?.UriImagen;
 
+                var url = new UrlHelper(Request);
+                _hateoas.GenerarLinks(vehiculo, url);
+
                 return Ok(vehiculo);
             }
             catch (Exception ex)
@@ -57,8 +72,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
-        [HttpPost]
-        [Route("", Name = "CreateVehiculo")]
+        // ================================================================
+        // POST: api/v1/vehiculos
+        // ================================================================
+        
+        [HttpPost, Route("", Name = "CreateVehiculo")]
         public IHttpActionResult CrearVehiculo([FromBody] VehiculoDto vehiculo)
         {
             try
@@ -69,6 +87,9 @@ namespace API_REST_GESTION.Controllers
                 int id = _logica.CrearVehiculo(vehiculo);
                 var nuevo = _logica.ObtenerVehiculoPorId(id);
 
+                var url = new UrlHelper(Request);
+                _hateoas.GenerarLinks(nuevo, url);
+
                 return Created($"api/vehiculos/{id}", nuevo);
             }
             catch (Exception ex)
@@ -77,8 +98,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
-        [HttpPut]
-        [Route("{id:int}", Name = "UpdateVehiculo")]
+        // ================================================================
+        // PUT: api/v1/vehiculos/{id}
+        // ================================================================
+        
+        [HttpPut, Route("{id:int}", Name = "UpdateVehiculo")]
         public IHttpActionResult ActualizarVehiculo(int id, [FromBody] VehiculoDto vehiculo)
         {
             try
@@ -92,7 +116,12 @@ namespace API_REST_GESTION.Controllers
                 if (!actualizado)
                     return NotFound();
 
-                return Ok(_logica.ObtenerVehiculoPorId(id));
+                var actualizadoDto = _logica.ObtenerVehiculoPorId(id);
+
+                var url = new UrlHelper(Request);
+                _hateoas.GenerarLinks(actualizadoDto, url);
+
+                return Ok(actualizadoDto);
             }
             catch (Exception ex)
             {
@@ -100,15 +129,16 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
-        [HttpDelete]
-        [Route("{id:int}", Name = "DeleteVehiculo")]
+        // ================================================================
+        // DELETE: api/v1/vehiculos/{id}
+        // ================================================================
+       
+        [HttpDelete, Route("{id:int}", Name = "DeleteVehiculo")]
         public IHttpActionResult EliminarVehiculo(int id)
         {
             try
             {
                 bool eliminado = _logica.EliminarVehiculo(id);
-                if (!eliminado)
-                    return NotFound();
 
                 return Ok(new { mensaje = "Vehículo eliminado correctamente." });
             }
@@ -118,18 +148,25 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
-        [HttpGet]
-        [Route("buscar", Name = "BuscarVehiculos")]
+        // ================================================================
+        // GET: api/v1/vehiculos/buscar
+        // ================================================================
+       
+        [HttpGet, Route("buscar", Name = "BuscarVehiculos")]
         public IHttpActionResult BuscarVehiculos(string categoria = null, string transmision = null, string estado = null)
         {
             try
             {
                 var vehiculos = _logica.BuscarVehiculos(categoria, transmision, estado);
 
+                var url = new UrlHelper(Request);
+
                 foreach (var v in vehiculos)
                 {
                     var img = _imgDatos.ListarPorVehiculo(v.IdVehiculo).FirstOrDefault();
                     v.UrlImagen = img?.UriImagen;
+
+                    _hateoas.GenerarLinks(v, url);
                 }
 
                 return Ok(vehiculos);
@@ -140,9 +177,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
-        // ruta necesaria para HATEOAS (las imágenes)
-        [HttpGet]
-        [Route("{id:int}/imagenes", Name = "GetImagenesPorVehiculo")]
+        // ================================================================
+        // GET: api/v1/vehiculos/{id}/imagenes
+        // ================================================================
+        
+        [HttpGet, Route("{id:int}/imagenes", Name = "GetImagenesPorVehiculo")]
         public IHttpActionResult ObtenerImagenesVehiculo(int id)
         {
             try

@@ -13,12 +13,10 @@ namespace WS_Integracion_Servicios
         private readonly IntegracionAutosLogica ln = new IntegracionAutosLogica();
 
         private SoapException Fault(string mensaje, Exception ex = null)
-            => new SoapException(mensaje, SoapException.ClientFaultCode, ex);
+            => new SoapException(mensaje, SoapException.ClientFaultCode, Context.Request.Url.ToString(), ex);
 
         // ================================================================
         // 🔹 MÉTODO: CrearPreReservaAuto
-        // Descripción: Crea un hold (pre-reserva) y devuelve id_hold y fecha expiración
-        // (equivalente a REST /api/integracion/autos/hold)
         // ================================================================
         [WebMethod(Description = "Crea una pre-reserva (hold) y devuelve id_hold y fecha de expiración.")]
         public PreReservaAutoResponseDto CrearPreReservaAuto(PreReservaAutoRequestDto request)
@@ -26,13 +24,21 @@ namespace WS_Integracion_Servicios
             try
             {
                 if (request == null)
-                    throw Fault("Solicitud inválida: no se recibieron datos.");
+                    throw Fault("Solicitud inválida: El cuerpo está vacío.");
 
+                // Ejecutar lógica (con validaciones internas)
                 var resultado = ln.CrearPreReservaAuto(request);
+
                 return resultado;
+            }
+            catch (SoapException)
+            {
+                // si ya es SOAP Fault, lo relanzas
+                throw;
             }
             catch (Exception ex)
             {
+                // convertir excepciones internas en Fault SOAP estándar
                 throw Fault("Error al crear la pre-reserva: " + ex.Message, ex);
             }
         }

@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
-using System.Web.Http.Cors;
 using Logica;
 using AccesoDatos.DTO;
+using API_REST_GESTION.Hateoas.Builders;
 
 namespace API_REST_GESTION.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/v1/promociones")]
     public class PromocionController : ApiController
     {
         private readonly PromocionLogica logica = new PromocionLogica();
 
+        // ================================
+        // GET: /api/v1/promociones
+        // ================================
         [HttpGet]
-        [Route("")]
+        [Route("", Name = "ObtenerPromociones")]
         public IHttpActionResult ObtenerPromociones()
         {
             try
@@ -23,7 +25,13 @@ namespace API_REST_GESTION.Controllers
                 if (lista == null || lista.Count == 0)
                     return NotFound();
 
-                return Ok(lista);
+                var hateoas = new List<object>();
+                var hbuilder = new PromocionHateoas(Url);
+
+                foreach (var item in lista)
+                    hateoas.Add(hbuilder.Build(item));
+
+                return Ok(hateoas);
             }
             catch (Exception ex)
             {
@@ -31,8 +39,33 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ================================
+        // GET BY ID
+        // ================================
+        [HttpGet]
+        [Route("{idPromocion:int}", Name = "GetPromocionById")]
+        public IHttpActionResult ObtenerPromocionPorId(int idPromocion)
+        {
+            try
+            {
+                var dto = logica.ObtenerPromocionPorId(idPromocion);
+                if (dto == null)
+                    return NotFound();
+
+                var hbuilder = new PromocionHateoas(Url);
+                return Ok(hbuilder.Build(dto));
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+        // ================================
+        // POST
+        // ================================
         [HttpPost]
-        [Route("")]
+        [Route("", Name = "CrearPromocion")]
         public IHttpActionResult CrearPromocion([FromBody] PromocionDto dto)
         {
             if (dto == null)
@@ -44,7 +77,10 @@ namespace API_REST_GESTION.Controllers
                 if (resultado <= 0)
                     return BadRequest("No se pudo crear la promoción.");
 
-                return Ok(new { mensaje = "Promoción creada correctamente.", idGenerado = resultado });
+                dto.IdPromocion = resultado;
+
+                var hbuilder = new PromocionHateoas(Url);
+                return Ok(hbuilder.Build(dto));
             }
             catch (Exception ex)
             {
@@ -52,8 +88,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ================================
+        // PUT
+        // ================================
         [HttpPut]
-        [Route("{idPromocion:int}")]
+        [Route("{idPromocion:int}", Name = "UpdatePromocion")]
         public IHttpActionResult ActualizarPromocion(int idPromocion, [FromBody] PromocionDto dto)
         {
             if (dto == null)
@@ -67,7 +106,8 @@ namespace API_REST_GESTION.Controllers
                 if (!actualizado)
                     return BadRequest("No se pudo actualizar la promoción.");
 
-                return Ok(new { mensaje = "Promoción actualizada correctamente." });
+                var hbuilder = new PromocionHateoas(Url);
+                return Ok(hbuilder.Build(dto));
             }
             catch (Exception ex)
             {
@@ -75,13 +115,17 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ================================
+        // DELETE
+        // ================================
         [HttpDelete]
-        [Route("{idPromocion:int}")]
+        [Route("{idPromocion:int}", Name = "DeletePromocion")]
         public IHttpActionResult EliminarPromocion(int idPromocion)
         {
             try
             {
                 bool eliminado = logica.EliminarPromocion(idPromocion);
+
                 if (!eliminado)
                     return NotFound();
 
@@ -93,6 +137,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ================================
+        // PING
+        // ================================
         [HttpGet]
         [Route("ping")]
         public IHttpActionResult Ping()

@@ -4,15 +4,26 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Logica;
 using AccesoDatos.DTO;
+using API_REST_GESTION.Hateoas.Builders;
 
 namespace API_REST_GESTION.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    
     [RoutePrefix("api/v1/facturas")]
     public class FacturaController : ApiController
     {
         private readonly FacturaLogica logica = new FacturaLogica();
+        private readonly FacturaHateoas hateoas;
 
+        public FacturaController()
+        {
+            var baseUrl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
+            hateoas = new FacturaHateoas(baseUrl);
+        }
+
+        // ===========================================================
+        // GET: /api/v1/facturas
+        // ===========================================================
         [HttpGet]
         [Route("")]
         public IHttpActionResult GetFacturas()
@@ -23,7 +34,11 @@ namespace API_REST_GESTION.Controllers
                 if (facturas == null || facturas.Count == 0)
                     return NotFound();
 
-                return Ok(facturas);
+                return Ok(new
+                {
+                    data = facturas,
+                    _links = hateoas.ConstruirLinksColeccion()
+                });
             }
             catch (Exception ex)
             {
@@ -31,6 +46,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // GET: /api/v1/facturas/{id}
+        // ===========================================================
         [HttpGet]
         [Route("{idFactura:int}")]
         public IHttpActionResult GetFacturaPorId(int idFactura)
@@ -41,7 +59,11 @@ namespace API_REST_GESTION.Controllers
                 if (factura == null)
                     return NotFound();
 
-                return Ok(factura);
+                return Ok(new
+                {
+                    data = factura,
+                    _links = hateoas.ConstruirLinksFactura(idFactura)
+                });
             }
             catch (Exception ex)
             {
@@ -49,6 +71,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // POST: /api/v1/facturas
+        // ===========================================================
         [HttpPost]
         [Route("")]
         public IHttpActionResult CrearFactura([FromBody] FacturaDto factura)
@@ -59,7 +84,13 @@ namespace API_REST_GESTION.Controllers
             try
             {
                 int idNuevaFactura = logica.CrearFactura(factura);
-                return Ok(new { mensaje = "Factura creada correctamente.", idFactura = idNuevaFactura });
+
+                return Ok(new
+                {
+                    mensaje = "Factura creada correctamente.",
+                    idFactura = idNuevaFactura,
+                    _links = hateoas.ConstruirLinksFactura(idNuevaFactura)
+                });
             }
             catch (Exception ex)
             {
@@ -67,6 +98,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // PUT: /api/v1/facturas/{id}
+        // ===========================================================
         [HttpPut]
         [Route("{idFactura:int}")]
         public IHttpActionResult ActualizarFactura(int idFactura, [FromBody] FacturaDto factura)
@@ -82,7 +116,11 @@ namespace API_REST_GESTION.Controllers
                 if (!actualizado)
                     return BadRequest("No se pudo actualizar la factura.");
 
-                return Ok(new { mensaje = "Factura actualizada correctamente." });
+                return Ok(new
+                {
+                    mensaje = "Factura actualizada correctamente.",
+                    _links = hateoas.ConstruirLinksFactura(idFactura)
+                });
             }
             catch (Exception ex)
             {
@@ -90,6 +128,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // DELETE: /api/v1/facturas/{id}
+        // ===========================================================
         [HttpDelete]
         [Route("{idFactura:int}")]
         public IHttpActionResult EliminarFactura(int idFactura)
@@ -97,10 +138,14 @@ namespace API_REST_GESTION.Controllers
             try
             {
                 bool eliminado = logica.EliminarFactura(idFactura);
-                if (eliminado)
-                    return Ok(new { mensaje = "Factura eliminada correctamente." });
-                else
+                if (!eliminado)
                     return NotFound();
+
+                return Ok(new
+                {
+                    mensaje = "Factura eliminada correctamente.",
+                    _links = hateoas.ConstruirLinksColeccion()
+                });
             }
             catch (Exception ex)
             {

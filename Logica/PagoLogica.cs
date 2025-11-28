@@ -65,7 +65,7 @@ namespace Logica
 
             // 🏦 Validación del método
             if (string.IsNullOrWhiteSpace(dto.Metodo))
-                dto.Metodo = "BancoAPI"; // valor por defecto si viene vacío
+                dto.Metodo = "Transaccion"; // valor por defecto si viene vacío
 
             // Crea la entidad
             var entidad = new Pago

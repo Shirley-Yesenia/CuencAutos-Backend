@@ -2,19 +2,30 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using System.Web.Http.Routing;
 using Logica;
 using AccesoDatos.DTO;
+using API_REST_GESTION.Hateoas.Builders;
 
 namespace API_REST_GESTION.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+   
     [RoutePrefix("api/v1/categoriasvehiculo")]
     public class CategoriaVehiculoController : ApiController
     {
         private readonly CategoriaVehiculoLogica ln = new CategoriaVehiculoLogica();
 
+        private CategoriaVehiculoHateoas GetBuilder()
+        {
+            return new CategoriaVehiculoHateoas(new UrlHelper(Request));
+        }
+
+        // ============================================================
+        // GET ALL (con HATEOAS)
+        // ============================================================
         [HttpGet]
-        [Route("")]
+        
+        [Route("", Name = "GetAllCategorias")]
         public IHttpActionResult GetCategorias()
         {
             try
@@ -23,7 +34,13 @@ namespace API_REST_GESTION.Controllers
                 if (categorias == null || categorias.Count == 0)
                     return NotFound();
 
-                return Ok(categorias);
+                var builder = GetBuilder();
+                var resultado = new List<object>();
+
+                foreach (var c in categorias)
+                    resultado.Add(builder.Build(c));
+
+                return Ok(resultado);
             }
             catch (Exception ex)
             {
@@ -31,8 +48,12 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ============================================================
+        // POST crear categoría
+        // ============================================================
         [HttpPost]
-        [Route("")]
+        
+        [Route("", Name = "CreateCategoria")]
         public IHttpActionResult CrearCategoria([FromBody] CategoriaVehiculoDto categoria)
         {
             if (categoria == null)
@@ -41,7 +62,9 @@ namespace API_REST_GESTION.Controllers
             try
             {
                 var creada = ln.CrearCategoria(categoria);
-                return Ok(creada);
+
+                var builder = GetBuilder();
+                return Ok(builder.Build(creada));
             }
             catch (Exception ex)
             {
@@ -49,8 +72,12 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ============================================================
+        // PUT actualizar
+        // ============================================================
         [HttpPut]
-        [Route("{idCategoria:int}")]
+        
+        [Route("{idCategoria:int}", Name = "UpdateCategoria")]
         public IHttpActionResult ActualizarCategoria(int idCategoria, [FromBody] CategoriaVehiculoDto categoria)
         {
             if (categoria == null)
@@ -59,13 +86,15 @@ namespace API_REST_GESTION.Controllers
             try
             {
                 categoria.IdCategoria = idCategoria;
-                bool actualizado = ln.ActualizarCategoria(categoria);
 
+                bool actualizado = ln.ActualizarCategoria(categoria);
                 if (!actualizado)
                     return BadRequest("No se pudo actualizar la categoría.");
 
                 var actualizada = ln.ObtenerPorId(idCategoria);
-                return Ok(actualizada);
+
+                var builder = GetBuilder();
+                return Ok(builder.Build(actualizada));
             }
             catch (Exception ex)
             {
@@ -73,17 +102,21 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ============================================================
+        // DELETE eliminar
+        // ============================================================
         [HttpDelete]
-        [Route("{idCategoria:int}")]
+        
+        [Route("{idCategoria:int}", Name = "DeleteCategoria")]
         public IHttpActionResult EliminarCategoria(int idCategoria)
         {
             try
             {
                 bool eliminado = ln.EliminarCategoria(idCategoria);
-                if (eliminado)
-                    return Ok(new { mensaje = "Categoría eliminada correctamente." });
-                else
+                if (!eliminado)
                     return NotFound();
+
+                return Ok(new { mensaje = "Categoría eliminada correctamente." });
             }
             catch (Exception ex)
             {
@@ -91,7 +124,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ============================================================
+        // GET transmisiones (sin hateoas)
+        // ============================================================
         [HttpGet]
+        
         [Route("transmisiones")]
         public IHttpActionResult ListarTransmisiones()
         {
@@ -106,7 +143,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ============================================================
+        // GET combustibles (sin hateoas)
+        // ============================================================
         [HttpGet]
+        
         [Route("combustibles")]
         public IHttpActionResult ListarCombustibles()
         {
@@ -121,11 +162,15 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ============================================================
+        // PING
+        // ============================================================
         [HttpGet]
+        
         [Route("ping")]
         public IHttpActionResult Ping()
         {
-            return Ok("Servicio REST de CategoríaVehículo operativo ✅");
+            return Ok("Servicio REST de CategoríasVehículo operativo ✅");
         }
     }
 }

@@ -16,9 +16,7 @@ namespace WS_Integracion_Servicios
         private readonly ImagenVehiculoDatos _imagenes = new ImagenVehiculoDatos();
 
         // ================================================================
-        // 🔹 MÉTODO: buscarAutos
-        // Descripción: Devuelve autos disponibles según filtros opcionales
-        // (equivalente a REST /api/integracion/autos/search)
+        // 🔹 MÉTODO SOAP: buscarAutos
         // ================================================================
         [WebMethod(Description = "Devuelve autos disponibles según filtros opcionales (modo SOAP).")]
         public List<AutoBookingDto> buscarAutos(
@@ -33,6 +31,20 @@ namespace WS_Integracion_Servicios
         {
             try
             {
+                // ====================================================
+                // ✔ Validación de países permitidos (Booking requirement)
+                // ====================================================
+                var paisesValidos = new[] { "Ecuador", "Estados Unidos" };
+
+                if (!string.IsNullOrEmpty(pais) && !paisesValidos.Contains(pais))
+                {
+                    // País inválido → devolver lista vacía
+                    return new List<AutoBookingDto>();
+                }
+
+                // ====================================================
+                // ✔ Filtros principales
+                // ====================================================
                 var listaVehiculos = _vehiculos.Listar()
                     .Where(v =>
                         (v.Estado ?? "") == "Disponible" &&
@@ -41,11 +53,14 @@ namespace WS_Integracion_Servicios
                         (!capacidad.HasValue || v.Capacidad == capacidad) &&
                         (!precio_min.HasValue || v.PrecioDia >= precio_min) &&
                         (!precio_max.HasValue || v.PrecioDia <= precio_max) &&
-                        (string.IsNullOrEmpty(ciudad) || (v.SucursalNombre ?? "").Contains(ciudad))
+                        (string.IsNullOrEmpty(ciudad) || (v.SucursalNombre ?? "").Contains(ciudad)) &&
+                        (string.IsNullOrEmpty(pais) || (v.SucursalPais ?? "").Equals(pais))
                     )
                     .ToList();
 
-                // 🔸 Ordenamiento
+                // ====================================================
+                // ✔ Ordenamiento
+                // ====================================================
                 if (!string.IsNullOrEmpty(sort))
                 {
                     switch (sort.ToLower())
@@ -53,13 +68,16 @@ namespace WS_Integracion_Servicios
                         case "precio_asc":
                             listaVehiculos = listaVehiculos.OrderBy(v => v.PrecioDia).ToList();
                             break;
+
                         case "precio_desc":
                             listaVehiculos = listaVehiculos.OrderByDescending(v => v.PrecioDia).ToList();
                             break;
                     }
                 }
 
-                // 🔸 Construcción del DTO final (igual que REST)
+                // ====================================================
+                // ✔ Mapeo final al DTO
+                // ====================================================
                 var listaFinal = listaVehiculos.Select(v =>
                 {
                     var img = _imagenes.ListarPorVehiculo(v.IdVehiculo).FirstOrDefault();
@@ -70,10 +88,10 @@ namespace WS_Integracion_Servicios
                         Tipo = $"{v.Marca} {v.Modelo} {(v.CategoriaNombre ?? "")}".Trim(),
                         Capacidad = v.Capacidad,
                         PrecioNormal = v.PrecioDia,
-                        PrecioActual = null, // igual que REST
+                        PrecioActual = null,
                         UriImagen = img?.UriImagen,
                         Ciudad = v.SucursalNombre ?? "No especificada",
-                        Pais = "Ecuador"
+                        Pais = v.SucursalPais ?? "No especificado"   // ← ✔ CORREGIDO
                     };
                 }).ToList();
 
@@ -88,7 +106,7 @@ namespace WS_Integracion_Servicios
     }
 
     // ================================================================
-    // 🔸 DTO igual que en REST
+    // DTO igual que REST
     // ================================================================
     public class AutoBookingDto
     {

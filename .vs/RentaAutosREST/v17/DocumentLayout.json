@@ -1,0 +1,670 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|c:\\users\\shirley\\desktop\\final carpeta autos\\rentaautosrest corregido\\rentaautosrest\\api_rest_integracion\\hateoas\\builders\\buscardatoshateoas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|solutionrelative:api_rest_integracion\\hateoas\\builders\\buscardatoshateoas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3780C7CC-7567-4A61-A2AB-660EAA5881E8}|GrpcIntegracionServer\\GrpcIntegracionServer.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\grpcintegracionserver\\protos\\integracion.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{3780C7CC-7567-4A61-A2AB-660EAA5881E8}|GrpcIntegracionServer\\GrpcIntegracionServer.csproj|solutionrelative:grpcintegracionserver\\protos\\integracion.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\accesodatos\\dto\\prereservaautov2requestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\dto\\prereservaautov2requestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\ws_gestion_servicios\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|solutionrelative:ws_gestion_servicios\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\ws_gestion_servicios\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|solutionrelative:ws_gestion_servicios\\global.asax.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\app_start\\webapiconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\ws_gestion_servicios\\ws_promocion.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|solutionrelative:ws_gestion_servicios\\ws_promocion.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\promocioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\promocioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\hateoas\\builders\\promocionhateoas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\hateoas\\builders\\promocionhateoas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\ws_gestion_servicios\\ws_usuarios.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|solutionrelative:ws_gestion_servicios\\ws_usuarios.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99477A51-CD37-4760-8E32-64DBF3C304B4}|Logica\\Logica.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\logica\\usuariologica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99477A51-CD37-4760-8E32-64DBF3C304B4}|Logica\\Logica.csproj|solutionrelative:logica\\usuariologica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99477A51-CD37-4760-8E32-64DBF3C304B4}|Logica\\Logica.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\logica\\carritologica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99477A51-CD37-4760-8E32-64DBF3C304B4}|Logica\\Logica.csproj|solutionrelative:logica\\carritologica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AAF0336-511E-4A39-876E-38C8E362E6E1}|Datos\\Datos.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\datos\\usuariodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AAF0336-511E-4A39-876E-38C8E362E6E1}|Datos\\Datos.csproj|solutionrelative:datos\\usuariodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\ws_gestion_servicios\\ws_carritodetalle.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|solutionrelative:ws_gestion_servicios\\ws_carritodetalle.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\ws_gestion_servicios\\ws_pagos.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E36A917A-B3D5-4BBC-92DA-A8798965EB05}|WS_Gestion_Servicios\\WS_Gestion_Servicios.csproj|solutionrelative:ws_gestion_servicios\\ws_pagos.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\carritodetallecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\carritodetallecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\accesodatos\\dto\\carritodetallerespuestadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\dto\\carritodetallerespuestadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\facturacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\facturacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\reservacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\reservacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\sucursalescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\sucursalescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\imagencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\imagencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\categoriavehiculocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\categoriavehiculocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\bloqueosvehiculoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\bloqueosvehiculoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_gestion\\controllers\\vehiculocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B890FFE4-32DA-431C-880C-18D85118603F}|API_REST_GESTION\\API_REST_GESTION.csproj|solutionrelative:api_rest_gestion\\controllers\\vehiculocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_integracion\\controllers\\buscarautosv2controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|solutionrelative:api_rest_integracion\\controllers\\buscarautosv2controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_integracion\\controllers\\validardisponibilidadv2controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|solutionrelative:api_rest_integracion\\controllers\\validardisponibilidadv2controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_integracion\\controllers\\usuarioexternocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|solutionrelative:api_rest_integracion\\controllers\\usuarioexternocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_integracion\\hateoas\\builders\\usuarioexternohateoas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|solutionrelative:api_rest_integracion\\hateoas\\builders\\usuarioexternohateoas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_integracion\\controllers\\buscardatoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|solutionrelative:api_rest_integracion\\controllers\\buscardatoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\accesodatos\\dto\\usuarioexternodto2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\dto\\usuarioexternodto2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AAF0336-511E-4A39-876E-38C8E362E6E1}|Datos\\Datos.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\datos\\vehiculodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AAF0336-511E-4A39-876E-38C8E362E6E1}|Datos\\Datos.csproj|solutionrelative:datos\\vehiculodatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2684773-B449-4CE7-B1A7-A3EB7DBA8F4F}|WS_Integracion_Servicios\\WS_Integracion_Servicios.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\ws_integracion_servicios\\ws_prereserva.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2684773-B449-4CE7-B1A7-A3EB7DBA8F4F}|WS_Integracion_Servicios\\WS_Integracion_Servicios.csproj|solutionrelative:ws_integracion_servicios\\ws_prereserva.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9AAF0336-511E-4A39-876E-38C8E362E6E1}|Datos\\Datos.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\datos\\prereservadatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9AAF0336-511E-4A39-876E-38C8E362E6E1}|Datos\\Datos.csproj|solutionrelative:datos\\prereservadatos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99477A51-CD37-4760-8E32-64DBF3C304B4}|Logica\\Logica.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\logica\\integracionautoslogica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99477A51-CD37-4760-8E32-64DBF3C304B4}|Logica\\Logica.csproj|solutionrelative:logica\\integracionautoslogica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\accesodatos\\dto\\prereservaautorequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\dto\\prereservaautorequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D2684773-B449-4CE7-B1A7-A3EB7DBA8F4F}|WS_Integracion_Servicios\\WS_Integracion_Servicios.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\ws_integracion_servicios\\ws_disponibilidadautos.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D2684773-B449-4CE7-B1A7-A3EB7DBA8F4F}|WS_Integracion_Servicios\\WS_Integracion_Servicios.csproj|solutionrelative:ws_integracion_servicios\\ws_disponibilidadautos.asmx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\accesodatos\\dto\\vehiculodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB2A0CDF-D22E-4EF0-9791-BFEBD8F39F88}|AccesoDatos\\AccesoDatos.csproj|solutionrelative:accesodatos\\dto\\vehiculodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\api_rest_integracion\\controllers\\validardisponibilidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{412C32CB-A618-4D6E-840B-B0F4371965D0}|API_REST_INTEGRACION\\API_REST_INTEGRACION.csproj|solutionrelative:api_rest_integracion\\controllers\\validardisponibilidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "integracion.proto",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\GrpcIntegracionServer\\Protos\\integracion.proto",
+              "RelativeDocumentMoniker": "GrpcIntegracionServer\\Protos\\integracion.proto",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\GrpcIntegracionServer\\Protos\\integracion.proto",
+              "RelativeToolTip": "GrpcIntegracionServer\\Protos\\integracion.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2025-11-26T13:41:51.332Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BuscarDatosHateoas.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Hateoas\\Builders\\BuscarDatosHateoas.cs",
+              "RelativeDocumentMoniker": "API_REST_INTEGRACION\\Hateoas\\Builders\\BuscarDatosHateoas.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Hateoas\\Builders\\BuscarDatosHateoas.cs",
+              "RelativeToolTip": "API_REST_INTEGRACION\\Hateoas\\Builders\\BuscarDatosHateoas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T06:19:34.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PreReservaAutoV2RequestDto.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\PreReservaAutoV2RequestDto.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\DTO\\PreReservaAutoV2RequestDto.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\PreReservaAutoV2RequestDto.cs",
+              "RelativeToolTip": "AccesoDatos\\DTO\\PreReservaAutoV2RequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T15:08:25.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\Web.config",
+              "RelativeDocumentMoniker": "WS_Gestion_Servicios\\Web.config",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\Web.config",
+              "RelativeToolTip": "WS_Gestion_Servicios\\Web.config",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBwAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-24T04:34:50.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WS_Promocion.asmx.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\WS_Promocion.asmx.cs",
+              "RelativeDocumentMoniker": "WS_Gestion_Servicios\\WS_Promocion.asmx.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\WS_Promocion.asmx.cs",
+              "RelativeToolTip": "WS_Gestion_Servicios\\WS_Promocion.asmx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:43:09.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Global.asax.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\Global.asax.cs",
+              "RelativeDocumentMoniker": "WS_Gestion_Servicios\\Global.asax.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\Global.asax.cs",
+              "RelativeToolTip": "WS_Gestion_Servicios\\Global.asax.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAUwCkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T05:47:30.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "WS_Usuarios.asmx.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\WS_Usuarios.asmx.cs",
+              "RelativeDocumentMoniker": "WS_Gestion_Servicios\\WS_Usuarios.asmx.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\WS_Usuarios.asmx.cs",
+              "RelativeToolTip": "WS_Gestion_Servicios\\WS_Usuarios.asmx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:33:26.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WebApiConfig.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\App_Start\\WebApiConfig.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\App_Start\\WebApiConfig.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\App_Start\\WebApiConfig.cs",
+              "RelativeToolTip": "API_REST_GESTION\\App_Start\\WebApiConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:35:26.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PromocionController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\PromocionController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\PromocionController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\PromocionController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\PromocionController.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAswJYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:38:09.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PromocionHateoas.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Hateoas\\Builders\\PromocionHateoas.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Hateoas\\Builders\\PromocionHateoas.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Hateoas\\Builders\\PromocionHateoas.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Hateoas\\Builders\\PromocionHateoas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T05:40:26.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsuarioLogica.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Logica\\UsuarioLogica.cs",
+              "RelativeDocumentMoniker": "Logica\\UsuarioLogica.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Logica\\UsuarioLogica.cs",
+              "RelativeToolTip": "Logica\\UsuarioLogica.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAgwD8AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T05:56:54.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UsuarioDatos.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Datos\\UsuarioDatos.cs",
+              "RelativeDocumentMoniker": "Datos\\UsuarioDatos.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Datos\\UsuarioDatos.cs",
+              "RelativeToolTip": "Datos\\UsuarioDatos.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAswKoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T05:53:02.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CarritoLogica.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Logica\\CarritoLogica.cs",
+              "RelativeDocumentMoniker": "Logica\\CarritoLogica.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Logica\\CarritoLogica.cs",
+              "RelativeToolTip": "Logica\\CarritoLogica.cs",
+              "ViewState": "AgIAALEAAAAAAAAAAAAwwMcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T22:04:22.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "WS_CarritoDetalle.asmx.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\WS_CarritoDetalle.asmx.cs",
+              "RelativeDocumentMoniker": "WS_Gestion_Servicios\\WS_CarritoDetalle.asmx.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\WS_CarritoDetalle.asmx.cs",
+              "RelativeToolTip": "WS_Gestion_Servicios\\WS_CarritoDetalle.asmx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T03:35:40.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "WS_Pagos.asmx.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\WS_Pagos.asmx.cs",
+              "RelativeDocumentMoniker": "WS_Gestion_Servicios\\WS_Pagos.asmx.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Gestion_Servicios\\WS_Pagos.asmx.cs",
+              "RelativeToolTip": "WS_Gestion_Servicios\\WS_Pagos.asmx.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAA3wDYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T03:39:24.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CarritoDetalleController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\CarritoDetalleController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\CarritoDetalleController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\CarritoDetalleController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\CarritoDetalleController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAowFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T21:59:59.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CarritoDetalleRespuestaDto.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\CarritoDetalleRespuestaDto.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\DTO\\CarritoDetalleRespuestaDto.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\CarritoDetalleRespuestaDto.cs",
+              "RelativeToolTip": "AccesoDatos\\DTO\\CarritoDetalleRespuestaDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T22:16:18.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FacturaController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\FacturaController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\FacturaController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\FacturaController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\FacturaController.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAswKMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:37:27.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ImagenController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\ImagenController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\ImagenController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\ImagenController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\ImagenController.cs",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAywAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:37:45.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ReservaController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\ReservaController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\ReservaController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\ReservaController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\ReservaController.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAkwHEAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:38:52.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SucursalesController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\SucursalesController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\SucursalesController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\SucursalesController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\SucursalesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:40:00.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CategoriaVehiculoController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\CategoriaVehiculoController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\CategoriaVehiculoController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\CategoriaVehiculoController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\CategoriaVehiculoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKgAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:36:33.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BloqueosVehiculosController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\BloqueosVehiculosController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\BloqueosVehiculosController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\BloqueosVehiculosController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\BloqueosVehiculosController.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAowHYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:35:58.436Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "VehiculoController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\VehiculoController.cs",
+              "RelativeDocumentMoniker": "API_REST_GESTION\\Controllers\\VehiculoController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_GESTION\\Controllers\\VehiculoController.cs",
+              "RelativeToolTip": "API_REST_GESTION\\Controllers\\VehiculoController.cs",
+              "ViewState": "AgIAALYAAAAAAAAAAAAswLYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-22T04:40:33.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "BuscarAutosV2Controller.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\BuscarAutosV2Controller.cs",
+              "RelativeDocumentMoniker": "API_REST_INTEGRACION\\Controllers\\BuscarAutosV2Controller.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\BuscarAutosV2Controller.cs",
+              "RelativeToolTip": "API_REST_INTEGRACION\\Controllers\\BuscarAutosV2Controller.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T03:44:58.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "ValidarDisponibilidadV2Controller.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\ValidarDisponibilidadV2Controller.cs",
+              "RelativeDocumentMoniker": "API_REST_INTEGRACION\\Controllers\\ValidarDisponibilidadV2Controller.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\ValidarDisponibilidadV2Controller.cs",
+              "RelativeToolTip": "API_REST_INTEGRACION\\Controllers\\ValidarDisponibilidadV2Controller.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T03:41:31.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "UsuarioExternoController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\UsuarioExternoController.cs",
+              "RelativeDocumentMoniker": "API_REST_INTEGRACION\\Controllers\\UsuarioExternoController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\UsuarioExternoController.cs",
+              "RelativeToolTip": "API_REST_INTEGRACION\\Controllers\\UsuarioExternoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T06:14:53.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "UsuarioExternoHateoas.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Hateoas\\Builders\\UsuarioExternoHateoas.cs",
+              "RelativeDocumentMoniker": "API_REST_INTEGRACION\\Hateoas\\Builders\\UsuarioExternoHateoas.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Hateoas\\Builders\\UsuarioExternoHateoas.cs",
+              "RelativeToolTip": "API_REST_INTEGRACION\\Hateoas\\Builders\\UsuarioExternoHateoas.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T06:08:09.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "BuscarDatosController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\BuscarDatosController.cs",
+              "RelativeDocumentMoniker": "API_REST_INTEGRACION\\Controllers\\BuscarDatosController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\BuscarDatosController.cs",
+              "RelativeToolTip": "API_REST_INTEGRACION\\Controllers\\BuscarDatosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwBUAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T06:20:52.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "UsuarioExternoDto2.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\UsuarioExternoDto2.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\DTO\\UsuarioExternoDto2.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\UsuarioExternoDto2.cs",
+              "RelativeToolTip": "AccesoDatos\\DTO\\UsuarioExternoDto2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T06:02:57.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "WS_PreReserva.asmx.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Integracion_Servicios\\WS_PreReserva.asmx.cs",
+              "RelativeDocumentMoniker": "WS_Integracion_Servicios\\WS_PreReserva.asmx.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Integracion_Servicios\\WS_PreReserva.asmx.cs",
+              "RelativeToolTip": "WS_Integracion_Servicios\\WS_PreReserva.asmx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T05:49:28.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "VehiculoDatos.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Datos\\VehiculoDatos.cs",
+              "RelativeDocumentMoniker": "Datos\\VehiculoDatos.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Datos\\VehiculoDatos.cs",
+              "RelativeToolTip": "Datos\\VehiculoDatos.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwD4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T04:19:59.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "PreReservaDatos.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Datos\\PreReservaDatos.cs",
+              "RelativeDocumentMoniker": "Datos\\PreReservaDatos.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Datos\\PreReservaDatos.cs",
+              "RelativeToolTip": "Datos\\PreReservaDatos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T05:44:26.479Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IntegracionAutosLogica.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Logica\\IntegracionAutosLogica.cs",
+              "RelativeDocumentMoniker": "Logica\\IntegracionAutosLogica.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\Logica\\IntegracionAutosLogica.cs",
+              "RelativeToolTip": "Logica\\IntegracionAutosLogica.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwCEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T05:41:51.072Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "PreReservaAutoRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\PreReservaAutoRequestDTO.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\DTO\\PreReservaAutoRequestDTO.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\PreReservaAutoRequestDTO.cs",
+              "RelativeToolTip": "AccesoDatos\\DTO\\PreReservaAutoRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T05:40:47.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "WS_DisponibilidadAutos.asmx.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Integracion_Servicios\\WS_DisponibilidadAutos.asmx.cs",
+              "RelativeDocumentMoniker": "WS_Integracion_Servicios\\WS_DisponibilidadAutos.asmx.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\WS_Integracion_Servicios\\WS_DisponibilidadAutos.asmx.cs",
+              "RelativeToolTip": "WS_Integracion_Servicios\\WS_DisponibilidadAutos.asmx.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAQwAsAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T05:12:14.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "VehiculoDto.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\VehiculoDto.cs",
+              "RelativeDocumentMoniker": "AccesoDatos\\DTO\\VehiculoDto.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\AccesoDatos\\DTO\\VehiculoDto.cs",
+              "RelativeToolTip": "AccesoDatos\\DTO\\VehiculoDto.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAmwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-21T04:10:51.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "ValidarDisponibilidadController.cs",
+              "DocumentMoniker": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\ValidarDisponibilidadController.cs",
+              "RelativeDocumentMoniker": "API_REST_INTEGRACION\\Controllers\\ValidarDisponibilidadController.cs",
+              "ToolTip": "C:\\Users\\Shirley\\Desktop\\Final Carpeta Autos\\RentaAutosREST Corregido\\RentaAutosREST\\API_REST_INTEGRACION\\Controllers\\ValidarDisponibilidadController.cs",
+              "RelativeToolTip": "API_REST_INTEGRACION\\Controllers\\ValidarDisponibilidadController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T05:38:16.065Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

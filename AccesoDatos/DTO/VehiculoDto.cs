@@ -36,6 +36,8 @@ namespace AccesoDatos.DTO
 
         public int IdSucursal { get; set; }
         public string SucursalNombre { get; set; }
+        public string SucursalPais { get; set; }
+
 
         // 🖼️ Imagen principal
         public string UrlImagen { get; set; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace API_REST_GESTION
 {
@@ -9,8 +10,10 @@ namespace API_REST_GESTION
     {
         public static void Register(HttpConfiguration config)
         {
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
             // Configuración y servicios de Web API
-
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
             // Rutas de Web API
             config.MapHttpAttributeRoutes();
 

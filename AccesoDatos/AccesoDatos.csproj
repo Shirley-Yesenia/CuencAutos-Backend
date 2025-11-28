@@ -65,24 +65,32 @@
     <Compile Include="DetalleFactura.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\AutoBookingDto.cs" />
     <Compile Include="DTO\BloqueoVehiculoDto.cs" />
+    <Compile Include="DTO\CarritoDetalleRespuestaDto.cs" />
     <Compile Include="DTO\CarritoDto.cs" />
     <Compile Include="DTO\CarritoItemDto.cs" />
     <Compile Include="DTO\CategoriaVehiculoDto.cs" />
     <Compile Include="DTO\DetalleFacturaDto.cs" />
     <Compile Include="DTO\FacturaDto.cs" />
     <Compile Include="DTO\HateoasResource.cs" />
+    <Compile Include="DTO\HateoasResourceWrapper.cs" />
     <Compile Include="DTO\HoldDto.cs" />
     <Compile Include="DTO\ImagenVehiculoDto.cs" />
     <Compile Include="DTO\LinkDto.cs" />
     <Compile Include="DTO\PagoDto.cs" />
+    <Compile Include="DTO\PagoRequestDto.cs" />
     <Compile Include="DTO\PreReservaAutoRequestDTO.cs" />
     <Compile Include="DTO\PreReservaAutoResponseDTO.cs" />
+    <Compile Include="DTO\PreReservaAutoV2RequestDto.cs" />
     <Compile Include="DTO\PromocionDto.cs" />
     <Compile Include="DTO\ReservaDto.cs" />
     <Compile Include="DTO\SucursalDto.cs" />
     <Compile Include="DTO\UsuarioDto.cs" />
+    <Compile Include="DTO\UsuarioExternoDto2.cs" />
+    <Compile Include="DTO\ValidarDisponibilidadDto.cs" />
     <Compile Include="DTO\VehiculoDto.cs" />
+    <Compile Include="DTO\VehiculoSimpleDto.cs" />
     <Compile Include="Factura.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

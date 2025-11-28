@@ -1,6 +1,7 @@
-﻿using System;
-using System.Web.Services;
+﻿using Datos;
 using Logica;
+using System;
+using System.Web.Services;
 
 namespace WS_Integracion_Servicios
 {
@@ -8,25 +9,83 @@ namespace WS_Integracion_Servicios
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     public class WS_DisponibilidadAutos : WebService
     {
-        private readonly ReservaLogica _reservaLN = new ReservaLogica();
+        private readonly ReservaLogica _reservas = new ReservaLogica();
+        private readonly VehiculoDatos _vehiculos = new VehiculoDatos();
+
 
         /// <summary>
         /// Verifica disponibilidad de un vehículo entre dos fechas.
-        /// Regla: fechaInicio inclusive, fechaFin exclusiva (noches = fin - inicio).
+        /// Regla: fechaInicio inclusive, fechaFin exclusiva.
         /// </summary>
         [WebMethod(Description = "Verifica disponibilidad de un vehículo.")]
-        public bool validarDisponibilidadAuto(int idVehiculo, DateTime fechaInicio, DateTime fechaFin)
+        public ValidarDisponibilidadSoapResponse validarDisponibilidadAuto(string idVehiculo, DateTime fechaInicio, DateTime fechaFin)
         {
-            // Validaciones rápidas (mismo criterio que usa tu LN)
-            if (idVehiculo <= 0) throw new Exception("idVehiculo inválido.");
+            // =====================================================
+            // ✔ Validar IdVehiculo (igual que REST)
+            // =====================================================
+            if (!int.TryParse(idVehiculo, out int idVehiculoInt))
+                return new ValidarDisponibilidadSoapResponse
+                {
+                    Disponible = false,
+                    Mensaje = "El IdVehiculo debe ser numérico."
+                };
+
+            // =====================================================
+            // ✔ Validar que exista el vehículo (igual que REST)
+            // =====================================================
+            var v = _vehiculos.ObtenerPorId(idVehiculoInt);
+            if (v == null)
+            {
+                return new ValidarDisponibilidadSoapResponse
+                {
+                    Disponible = false,
+                    Mensaje = "El vehículo no existe."
+                };
+            }
+
+            // =====================================================
+            // ✔ Validación de fechas (igual que REST)
+            // =====================================================
             var ini = fechaInicio.Date;
             var fin = fechaFin.Date;
-            if (fin <= ini) throw new Exception("Rango de fechas inválido.");
 
-            // Llama a tu capa de negocio (no tocamos repos/EF directo)
-            // True  => disponible
-            // False => hay solape (no disponible)
-            return _reservaLN.ValidarDisponibilidad(idVehiculo, ini, fin);
+            if (fin <= ini)
+            {
+                return new ValidarDisponibilidadSoapResponse
+                {
+                    Disponible = false,
+                    Mensaje = "Rango de fechas inválido."
+                };
+            }
+
+            // =====================================================
+            // ✔ Llamada a la lógica (igual que REST)
+            // =====================================================
+            bool disponible = _reservas.ValidarDisponibilidad(idVehiculoInt, ini, fin);
+
+            // =====================================================
+            // ✔ Respuesta alineada con REST
+            // =====================================================
+            return new ValidarDisponibilidadSoapResponse
+            {
+                IdVehiculo = idVehiculoInt,
+                FechaInicio = ini,
+                FechaFin = fin,
+                Disponible = disponible,
+                Mensaje = disponible ? "Vehículo disponible" : "No disponible"
+            };
         }
+    }
+
+    // ===========================================================
+    // DTO SOAP (equivalente al anónimo en REST)
+    // ===========================================================
+    public class ValidarDisponibilidadSoapResponse
+    {
+        public int IdVehiculo { get; set; }
+        public DateTime FechaInicio { get; set; }
+        public DateTime FechaFin { get; set; }
+        public bool Disponible { get; set; }
+        public string Mensaje { get; set; }
     }
 }

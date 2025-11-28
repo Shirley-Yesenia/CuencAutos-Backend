@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Web.Http;
-using System.Web.Http.Cors;   // ← NECESARIO PARA CORS
+using System.Web.Http.Cors;
+using API_REST_INTEGRACION.Hateoas.Builders;
+using AccesoDatos.DTO;
 
 namespace API_REST_INTEGRACION.Controllers
 {
-    // ⭐ HABILITAR CORS PARA ESTE CONTROLADOR
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class EmitirFacturaController : ApiController
     {
         // ================================================================
-        // 🔹 POST: /api/integracion/autos/invoices
+        // 🔹 POST: /api/v1/integracion/autos/invoices
         // ================================================================
         [HttpPost]
-        [Route("api/v1/integracion/autos/invoices")]
+        [Route("api/v1/integracion/autos/invoices", Name = "EmitirFactura")]
         public IHttpActionResult EmitirFactura([FromBody] FacturaOrquestadorDto dto)
         {
-            // ✅ Validaciones básicas
             if (dto == null)
                 return BadRequest("El cuerpo de la solicitud no puede estar vacío.");
 
@@ -42,15 +42,24 @@ namespace API_REST_INTEGRACION.Controllers
                 // 🧾 Generar ID de factura aleatorio
                 var idFactura = "FAC-" + new Random().Next(1000, 9999);
 
-                // 📄 Generar URL de factura simulada
+                // 📄 URL simulada de la factura
                 var urlFactura = $"https://cuencautosinte.runasp.net/facturas/{idFactura}.pdf";
 
-                // 🔥 RESPUESTA FINAL
-                return Ok(new
+                // DTO de respuesta
+                var respuesta = new
                 {
                     id_factura = idFactura,
                     url_factura = urlFactura,
-                    estado = "Factura emitida correctamente ✅"
+                    estado = "Factura emitida correctamente"
+                };
+
+                // 🔗 Generar HATEOAS dinámico
+                var hateoas = new EmitirFacturaHateoas(Url, idFactura, dto.id_reserva);
+
+                return Ok(new
+                {
+                    datos = respuesta,
+                    links = hateoas.GetLinks()
                 });
             }
             catch (Exception ex)
@@ -60,7 +69,7 @@ namespace API_REST_INTEGRACION.Controllers
         }
     }
 
-    // DTO según requerimiento
+    // DTO requerido — SIN LINKS
     public class FacturaOrquestadorDto
     {
         public string id_reserva { get; set; }

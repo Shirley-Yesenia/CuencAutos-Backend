@@ -1,4 +1,6 @@
-﻿using Datos;
+﻿using AccesoDatos.DTO;
+using API_REST_INTEGRACION.Hateoas.Builders;
+using Datos;
 using System;
 using System.Web.Http;
 using System.Web.Http.Cors;
@@ -11,7 +13,7 @@ namespace API_REST_INTEGRACION.Controllers
         private readonly ReservaDatos _reservas = new ReservaDatos();
 
         // ================================================================
-        // 🔹 POST: /api/integracion/autos/availability
+        // 🔹 POST: /api/v1/integracion/autos/availability
         // ================================================================
         [HttpPost]
         [Route("api/v1/integracion/autos/availability")]
@@ -20,23 +22,24 @@ namespace API_REST_INTEGRACION.Controllers
             if (dto == null)
                 return BadRequest("El cuerpo de la solicitud no puede estar vacío.");
 
-            bool disponible = _reservas.ValidarDisponibilidad(dto.IdVehiculo, dto.FechaInicio, dto.FechaFin);
+            // ⭐ Validar que IdVehiculo sea numérico
+            if (!int.TryParse(dto.IdVehiculo, out int idVehiculoInt))
+                return BadRequest("El IdVehiculo debe ser numérico.");
 
-            return Ok(new
+            // Lógica de negocio
+            bool disponible = _reservas.ValidarDisponibilidad(idVehiculoInt, dto.FechaInicio, dto.FechaFin);
+
+            var respuesta = new
             {
-                dto.IdVehiculo,
+                IdVehiculo = idVehiculoInt,
                 dto.FechaInicio,
                 dto.FechaFin,
                 Disponible = disponible,
-                Mensaje = disponible ? "Vehículo disponible ✅" : "No disponible ❌"
-            });
-        }
-    }
+                Mensaje = disponible ? "Vehículo disponible ✅" : "No disponible ❌",
+                _links = new ValidarDisponibilidadHateoas().Build(idVehiculoInt)
+            };
 
-    public class ValidarDisponibilidadDto
-    {
-        public int IdVehiculo { get; set; }
-        public DateTime FechaInicio { get; set; }
-        public DateTime FechaFin { get; set; }
+            return Ok(respuesta);
+        }
     }
 }

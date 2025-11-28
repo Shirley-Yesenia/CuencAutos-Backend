@@ -9,7 +9,6 @@ using API_REST_GESTION.Hateoas.Builders;
 
 namespace API_REST_GESTION.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/v1/bloqueosvehiculos")]
     public class BloqueosVehiculosController : ApiController
     {
@@ -20,9 +19,6 @@ namespace API_REST_GESTION.Controllers
             System.Web.HttpContext.Current.Server.ScriptTimeout = 600;
         }
 
-        // --------------------------------------------------------------
-        // HATEOAS BUILDER
-        // --------------------------------------------------------------
         private BloqueoVehiculosHateoas GetBuilder()
         {
             return new BloqueoVehiculosHateoas(new UrlHelper(Request));
@@ -32,6 +28,7 @@ namespace API_REST_GESTION.Controllers
         // 🔵 GET: api/v1/bloqueosvehiculos/vehiculo/{idVehiculo}
         // ============================================================
         [HttpGet]
+        
         [Route("vehiculo/{idVehiculo:int}", Name = "GetBloqueosPorVehiculo")]
         public IHttpActionResult GetBloqueosPorVehiculo(int idVehiculo)
         {
@@ -59,6 +56,7 @@ namespace API_REST_GESTION.Controllers
         // 🟢 POST: api/v1/bloqueosvehiculos
         // ============================================================
         [HttpPost]
+     
         [Route("")]
         public IHttpActionResult Post([FromBody] BloqueoVehiculoDto bloqueo)
         {
@@ -85,6 +83,7 @@ namespace API_REST_GESTION.Controllers
         // 🔴 DELETE: api/v1/bloqueosvehiculos/{idHold}
         // ============================================================
         [HttpDelete]
+        
         [Route("{idHold:int}", Name = "DeleteBloqueo")]
         public IHttpActionResult Delete(int idHold)
         {
@@ -106,6 +105,7 @@ namespace API_REST_GESTION.Controllers
         // GET: api/v1/bloqueosvehiculos
         // ============================================================
         [HttpGet]
+        
         [Route("")]
         public IHttpActionResult Get()
         {
@@ -116,6 +116,7 @@ namespace API_REST_GESTION.Controllers
         // GET: api/v1/bloqueosvehiculos/{idHold}
         // ============================================================
         [HttpGet]
+        
         [Route("{idHold:int}", Name = "GetBloqueoById")]
         public IHttpActionResult GetById(int idHold)
         {

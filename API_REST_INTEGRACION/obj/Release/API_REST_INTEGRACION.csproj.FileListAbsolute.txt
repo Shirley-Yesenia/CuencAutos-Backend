@@ -121,3 +121,5 @@ C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutos
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_INTEGRACION\bin\es\System.Net.Http.Formatting.resources.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_INTEGRACION\bin\es\System.Web.Http.resources.dll
 C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_INTEGRACION\bin\es\System.Web.Http.WebHost.resources.dll
+C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_INTEGRACION\bin\Swashbuckle.Core.dll
+C:\Users\Shirley\Desktop\Final Carpeta Autos\RentaAutosREST Corregido\RentaAutosREST\API_REST_INTEGRACION\bin\WebActivatorEx.dll

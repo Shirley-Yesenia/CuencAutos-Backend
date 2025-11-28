@@ -59,6 +59,8 @@ namespace Datos
 
                             IdSucursal = v.id_sucursal ?? 0,
                             SucursalNombre = s != null ? s.nombre : "Sin sucursal",
+                            SucursalPais = s != null ? s.pais : "No especificado",
+
 
                             UrlImagen = null // se llena luego desde la capa de lógica si usas Cloudinary
                         };

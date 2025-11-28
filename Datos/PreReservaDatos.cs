@@ -7,7 +7,6 @@ namespace Datos
 {
     public class PreReservaDatos
     {
-        // Usa el nombre real de tu DbContext (lo viste en Model1.Context.cs)
         private readonly db31808Entities1 _context = new db31808Entities1();
 
         public bool ExisteVehiculo(string idVehiculo)
@@ -22,6 +21,30 @@ namespace Datos
             return n > 0;
         }
 
+        // 🔥 AQUI SE AGREGA LA FUNCIÓN QUE TE FALTABA
+        public bool ExisteHoldActivo(int idVehiculo, DateTime fechaInicio, DateTime fechaFin)
+        {
+            var sql = @"
+                SELECT COUNT(1)
+                FROM Hold
+                WHERE id_vehiculo = @veh
+                  AND estado = 'Activo'
+                  AND fecha_expiracion > GETDATE()
+                  AND (
+                        (fecha_inicio <= @fin AND fecha_expiracion >= @ini)
+                      )
+            ";
+
+            var n = _context.Database.SqlQuery<int>(
+                sql,
+                new SqlParameter("@veh", idVehiculo),
+                new SqlParameter("@ini", fechaInicio),
+                new SqlParameter("@fin", fechaFin)
+            ).FirstOrDefault();
+
+            return n > 0;
+        }
+
         public int CrearHold(int idVehiculo, DateTime fechaInicio, DateTime fechaFin, int duracionSeg)
         {
             if (duracionSeg <= 0) duracionSeg = 600;
@@ -29,7 +52,6 @@ namespace Datos
             var ahora = DateTime.Now;
             var expira = ahora.AddSeconds(duracionSeg);
 
-            // Precio/día del vehículo
             var precioDia = _context.Database.SqlQuery<decimal>(
                 "SELECT precio_dia FROM Vehiculo WHERE id_vehiculo=@v",
                 new SqlParameter("@v", idVehiculo)
@@ -38,8 +60,7 @@ namespace Datos
             var dias = Math.Max(1, (fechaFin.Date - fechaInicio.Date).Days);
             var monto = precioDia * dias;
 
-            // Usuario placeholder para pruebas (ajusta si tienes sesión)
-            var idUsuario = 1;
+            var idUsuario = 1; // placeholder pruebas
 
             var sql = @"
                 INSERT INTO Hold (id_usuario, id_vehiculo, fecha_inicio, fecha_expiracion, monto_bloqueado, referencia_banco, estado)

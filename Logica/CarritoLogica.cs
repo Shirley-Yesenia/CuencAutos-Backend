@@ -16,6 +16,24 @@ namespace Logica
         private readonly VehiculoDatos vehiculoDatos = new VehiculoDatos();
         private readonly ReservaDatos reservaDatos = new ReservaDatos();
 
+        public CarritoDetalleRespuestaDto ObtenerCarritoConItems(int idCarrito)
+        {
+            var carrito = carritoDatos.ObtenerPorId(idCarrito);
+            if (carrito == null)
+                return null;
+
+            var items = itemDatos.ListarPorCarrito(idCarrito);
+
+            return new CarritoDetalleRespuestaDto
+            {
+                IdCarrito = carrito.IdCarrito,
+                IdUsuario = carrito.IdUsuario,
+                FechaCreacion = carrito.FechaCreacion,
+                Items = items
+            };
+        }
+
+
         // ============================================================
         // 🔵 LISTAR TODOS LOS CARRITOS
         // ============================================================
@@ -168,6 +186,18 @@ namespace Logica
             var items = itemDatos.ListarPorCarrito(idCarrito);
             return items.Sum(i => i.Subtotal);
         }
+        // ============================================================
+        // 🆕 Crear carrito para usuario (usado por UsuarioLogica)
+        // ============================================================
+        public int CrearCarritoParaUsuario(int idUsuario)
+        {
+            if (idUsuario <= 0)
+                throw new ArgumentException("ID de usuario inválido.");
+
+            // Usa el método existente que ya crea el carrito si no existe
+            return carritoDatos.ObtenerOCrear(idUsuario);
+        }
+
 
         // ============================================================
         // 🧩 CONVERTIR CARRITO A RESERVA (checkout)

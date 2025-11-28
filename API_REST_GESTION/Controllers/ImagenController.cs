@@ -4,15 +4,25 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using Logica;
 using AccesoDatos.DTO;
+using API_REST_GESTION.Hateoas.Builders;
 
 namespace API_REST_GESTION.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/v1/imagenes")]
     public class ImagenController : ApiController
     {
         private readonly ImagenVehiculoLogica logica = new ImagenVehiculoLogica();
+        private readonly ImagenHateoas hateoas;
 
+        public ImagenController()
+        {
+            var baseUrl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
+            hateoas = new ImagenHateoas(baseUrl);
+        }
+
+        // =========================================================
+        // GET /api/v1/imagenes
+        // =========================================================
         [HttpGet]
         [Route("")]
         public IHttpActionResult GetImagenes()
@@ -23,7 +33,11 @@ namespace API_REST_GESTION.Controllers
                 if (imgs == null || imgs.Count == 0)
                     return NotFound();
 
-                return Ok(imgs);
+                return Ok(new
+                {
+                    data = imgs,
+                    _links = hateoas.LinksColeccion()
+                });
             }
             catch (Exception ex)
             {
@@ -31,6 +45,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // =========================================================
+        // GET /api/v1/imagenes/{idImagen}
+        // =========================================================
         [HttpGet]
         [Route("{idImagen:int}")]
         public IHttpActionResult GetImagen(int idImagen)
@@ -41,7 +58,11 @@ namespace API_REST_GESTION.Controllers
                 if (img == null)
                     return NotFound();
 
-                return Ok(img);
+                return Ok(new
+                {
+                    data = img,
+                    _links = hateoas.LinksImagen(idImagen)
+                });
             }
             catch (Exception ex)
             {
@@ -49,6 +70,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // =========================================================
+        // GET /api/v1/imagenes/vehiculo/{idVehiculo}
+        // =========================================================
         [HttpGet]
         [Route("vehiculo/{idVehiculo:int}")]
         public IHttpActionResult GetPorVehiculo(int idVehiculo)
@@ -59,7 +83,11 @@ namespace API_REST_GESTION.Controllers
                 if (imgs == null || imgs.Count == 0)
                     return NotFound();
 
-                return Ok(imgs);
+                return Ok(new
+                {
+                    data = imgs,
+                    _links = hateoas.LinksPorVehiculo(idVehiculo)
+                });
             }
             catch (Exception ex)
             {
@@ -67,6 +95,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // =========================================================
+        // GET /api/v1/imagenes/vehiculo/{idVehiculo}/principal
+        // =========================================================
         [HttpGet]
         [Route("vehiculo/{idVehiculo:int}/principal")]
         public IHttpActionResult GetPrincipal(int idVehiculo)
@@ -77,7 +108,11 @@ namespace API_REST_GESTION.Controllers
                 if (img == null)
                     return NotFound();
 
-                return Ok(img);
+                return Ok(new
+                {
+                    data = img,
+                    _links = hateoas.LinksPrincipal(idVehiculo)
+                });
             }
             catch (Exception ex)
             {
@@ -85,6 +120,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // =========================================================
+        // POST /api/v1/imagenes
+        // =========================================================
         [HttpPost]
         [Route("")]
         public IHttpActionResult CrearImagen([FromBody] ImagenVehiculoDto dto)
@@ -98,7 +136,11 @@ namespace API_REST_GESTION.Controllers
                 if (!ok)
                     return BadRequest("No se pudo crear la imagen.");
 
-                return Ok(new { mensaje = "Imagen creada correctamente." });
+                return Ok(new
+                {
+                    mensaje = "Imagen creada correctamente.",
+                    _links = hateoas.LinksColeccion()
+                });
             }
             catch (Exception ex)
             {
@@ -106,6 +148,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // =========================================================
+        // PUT /api/v1/imagenes/{idImagen}
+        // =========================================================
         [HttpPut]
         [Route("{idImagen:int}")]
         public IHttpActionResult ActualizarImagen(int idImagen, [FromBody] ImagenVehiculoDto dto)
@@ -121,7 +166,11 @@ namespace API_REST_GESTION.Controllers
                 if (!ok)
                     return BadRequest("No se pudo actualizar la imagen.");
 
-                return Ok(new { mensaje = "Imagen actualizada correctamente." });
+                return Ok(new
+                {
+                    mensaje = "Imagen actualizada correctamente.",
+                    _links = hateoas.LinksImagen(idImagen)
+                });
             }
             catch (Exception ex)
             {
@@ -129,6 +178,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // =========================================================
+        // DELETE /api/v1/imagenes/{idImagen}
+        // =========================================================
         [HttpDelete]
         [Route("{idImagen:int}")]
         public IHttpActionResult EliminarImagen(int idImagen)
@@ -139,7 +191,11 @@ namespace API_REST_GESTION.Controllers
                 if (!eliminado)
                     return NotFound();
 
-                return Ok(new { mensaje = "Imagen eliminada correctamente." });
+                return Ok(new
+                {
+                    mensaje = "Imagen eliminada correctamente.",
+                    _links = hateoas.LinksColeccion()
+                });
             }
             catch (Exception ex)
             {

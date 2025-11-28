@@ -3,24 +3,33 @@ using AccesoDatos.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Datos
 {
     public class UsuarioDatos
     {
-        // 🔹 Instancia del contexto de Entity Framework
         private readonly db31808Entities1 _context = new db31808Entities1();
 
         // ============================================================
-        // 🟢 CREATE - Crear un nuevo usuario
+        // 🟢 CREATE - Crear un nuevo usuario + carrito automático
         // ============================================================
         public int Crear(Usuario nuevo)
         {
-            _context.Usuario.Add(nuevo);   // Agrega al contexto
-            _context.SaveChanges();        // Guarda en la base de datos
-            return nuevo.id_usuario;       // Devuelve el ID generado
+            // Crear usuario
+            _context.Usuario.Add(nuevo);
+            _context.SaveChanges(); // Genera id_usuario
+
+            // Crear carrito automático (SIN estado)
+            var carrito = new Carrito
+            {
+                id_usuario = nuevo.id_usuario,
+                fecha_creacion = DateTime.Now
+            };
+
+            _context.Carrito.Add(carrito);
+            _context.SaveChanges();
+
+            return nuevo.id_usuario;
         }
 
         // ============================================================
@@ -28,7 +37,6 @@ namespace Datos
         // ============================================================
         public List<UsuarioDto> Listar()
         {
-            // Proyección a DTO para no exponer las entidades directamente
             return _context.Usuario.Select(u => new UsuarioDto
             {
                 IdUsuario = u.id_usuario,
@@ -46,24 +54,49 @@ namespace Datos
         }
 
         // ============================================================
-        // 🔍 READ (por ID) - Obtener un usuario específico
+        // 🔍 READ - Obtener un usuario por ID
         // ============================================================
         public UsuarioDto ObtenerPorId(int id)
         {
-            // Retorna el primer usuario con ese ID o null si no existe
             return Listar().FirstOrDefault(u => u.IdUsuario == id);
         }
 
         // ============================================================
-        // 🟠 UPDATE - Actualizar un usuario existente
+        // 🔍 READ - Obtener usuario por EMAIL
+        // ============================================================
+        public Usuario ObtenerPorEmail(string email)
+        {
+            return _context.Usuario.FirstOrDefault(u => u.email == email);
+        }
+
+        public UsuarioDto ObtenerDtoPorEmail(string email)
+        {
+            var u = _context.Usuario.FirstOrDefault(x => x.email == email);
+            if (u == null) return null;
+
+            return new UsuarioDto
+            {
+                IdUsuario = u.id_usuario,
+                Nombre = u.nombre,
+                Apellido = u.apellido,
+                Email = u.email,
+                Direccion = u.direccion,
+                Pais = u.pais,
+                Edad = u.edad,
+                TipoIdentificacion = u.tipo_identificacion,
+                Identificacion = u.identificacion,
+                Rol = u.rol
+            };
+        }
+
+        // ============================================================
+        // 🟠 UPDATE - Actualizar usuario
         // ============================================================
         public bool Actualizar(Usuario mod)
         {
-            // Busca al usuario en la base
             var u = _context.Usuario.Find(mod.id_usuario);
-            if (u == null) return false; // Si no existe, retorna false
+            if (u == null) return false;
 
-            // Actualiza los campos
             u.nombre = mod.nombre;
             u.apellido = mod.apellido;
             u.email = mod.email;
@@ -75,12 +108,12 @@ namespace Datos
             u.identificacion = mod.identificacion;
             u.rol = mod.rol;
 
-            _context.SaveChanges(); // Guarda los cambios
+            _context.SaveChanges();
             return true;
         }
 
         // ============================================================
-        // 🔴 DELETE - Eliminar un usuario
+        // 🔴 DELETE - Eliminar usuario
         // ============================================================
         public bool Eliminar(int id)
         {
@@ -93,18 +126,15 @@ namespace Datos
         }
 
         // ============================================================
-        // 🧩 MÉTODO EXTRA: Autenticación básica
+        // 🧩 Login simple
         // ============================================================
         public UsuarioDto Login(string email, string contrasena)
         {
-            // Busca un usuario con las credenciales
             var usuario = _context.Usuario.FirstOrDefault(u =>
                 u.email == email && u.contrasena == contrasena);
 
-            // Si no se encuentra, retorna null
             if (usuario == null) return null;
 
-            // Devuelve el usuario en formato DTO
             return new UsuarioDto
             {
                 IdUsuario = usuario.id_usuario,
@@ -114,8 +144,9 @@ namespace Datos
                 Rol = usuario.rol
             };
         }
+
         // ============================================================
-        // 🧩 Alias para compatibilidad con controladores REST
+        // 🧩 Alias adicional
         // ============================================================
         public List<UsuarioDto> ListarUsuarios()
         {
@@ -135,7 +166,5 @@ namespace Datos
                 UsuarioCorreo = u.email
             }).ToList();
         }
-
-
     }
 }

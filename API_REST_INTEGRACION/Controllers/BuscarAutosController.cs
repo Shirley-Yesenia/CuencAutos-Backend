@@ -1,24 +1,26 @@
-﻿using System;
+﻿using AccesoDatos.DTO;
+using Datos;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-using System.Web.Http.Cors;   // 🔥 AGREGADO PARA CORS
-using AccesoDatos.DTO;
-using Datos;
+using System.Web.Http.Cors;
+using System.Web.Http.Routing;
 
 namespace API_REST_INTEGRACION.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]   // 🔥 CORS HABILITADO
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/v1/integracion/autos")]
-    public class IntegracionAutosController : ApiController
+    public class BuscarAutosController : ApiController
     {
         private readonly VehiculoDatos _vehiculos = new VehiculoDatos();
         private readonly ImagenVehiculoDatos _imagenes = new ImagenVehiculoDatos();
 
         // ================================================================
-        // 🔹 GET: /api/integracion/autos/search
+        // GET: /api/v1/integracion/autos/search
         // ================================================================
         [HttpGet]
-        [Route("search")]
+        [Route("search", Name = "BuscarAutos")]
         public IHttpActionResult BuscarAutos(
             string categoria = "",
             string transmision = "",
@@ -32,6 +34,9 @@ namespace API_REST_INTEGRACION.Controllers
         {
             try
             {
+                // ================================================================
+                // FILTRO DE AUTOS
+                // ================================================================
                 var listaVehiculos = _vehiculos.Listar()
                     .Where(v =>
                         (v.Estado ?? "") == "Disponible" &&
@@ -44,7 +49,9 @@ namespace API_REST_INTEGRACION.Controllers
                     )
                     .ToList();
 
-                // 🔸 Ordenamiento
+                // ================================================================
+                // ORDENAMIENTO
+                // ================================================================
                 if (!string.IsNullOrEmpty(sort))
                 {
                     switch (sort.ToLower())
@@ -52,13 +59,16 @@ namespace API_REST_INTEGRACION.Controllers
                         case "precio_asc":
                             listaVehiculos = listaVehiculos.OrderBy(v => v.PrecioDia).ToList();
                             break;
+
                         case "precio_desc":
                             listaVehiculos = listaVehiculos.OrderByDescending(v => v.PrecioDia).ToList();
                             break;
                     }
                 }
 
-                // 🔸 DTO final (con ciudad y país)
+                // ================================================================
+                // MAPEAR A DTO (SIN LINKS POR AUTO)
+                // ================================================================
                 var listaFinal = listaVehiculos.Select(v =>
                 {
                     var img = _imagenes.ListarPorVehiculo(v.IdVehiculo).FirstOrDefault();
@@ -76,27 +86,40 @@ namespace API_REST_INTEGRACION.Controllers
                     };
                 }).ToList();
 
-                return Ok(listaFinal);
+                // ================================================================
+                // HATEOAS GLOBAL (IGUAL QUE EMITIR FACTURA)
+                // ================================================================
+                var wrapper = new
+                {
+                    Data = listaFinal,
+                    Links = new List<object>
+                    {
+                        // Self
+                        new
+                        {
+                            Rel = "self",
+                            Href = Request.RequestUri.ToString(),
+                            Method = "GET"
+                        },
+
+                        // Crear pre-reserva
+                        new
+                        {
+                            Rel = "crear_prereserva_auto",
+                            Href = Url.Link("CrearPreReservaAuto", null),
+                            Method = "POST"
+                        }
+                    }
+                };
+
+                return Ok(wrapper);
             }
             catch (Exception ex)
             {
-                return InternalServerError(new Exception("Error al buscar autos: " + ex.Message));
+                return InternalServerError(
+                    new Exception("Error al buscar autos: " + ex.Message)
+                );
             }
         }
-    }
-
-    // ================================================================
-    // 🔸 DTO compatible con Booking
-    // ================================================================
-    public class AutoBookingDto
-    {
-        public string IdAuto { get; set; }
-        public string Tipo { get; set; }
-        public int Capacidad { get; set; }
-        public decimal PrecioNormal { get; set; }
-        public decimal? PrecioActual { get; set; }
-        public string UriImagen { get; set; }
-        public string Ciudad { get; set; }
-        public string Pais { get; set; }
     }
 }

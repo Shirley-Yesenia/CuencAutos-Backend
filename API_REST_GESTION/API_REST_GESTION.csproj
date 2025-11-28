@@ -187,13 +187,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BloqueosVehiculosController.cs" />
+    <Compile Include="Controllers\CarritoDetalleController.cs" />
     <Compile Include="Controllers\CategoriaVehiculoController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagenController.cs" />
+    <Compile Include="Controllers\PagoController.cs" />
     <Compile Include="Controllers\PromocionController.cs" />
     <Compile Include="Controllers\ReservaController.cs" />
     <Compile Include="Controllers\SucursalesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VehiculoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -206,6 +209,7 @@
     <Compile Include="Hateoas\Builders\PromocionHateoas.cs" />
     <Compile Include="Hateoas\Builders\ReservaHateoas.cs" />
     <Compile Include="Hateoas\Builders\SucursalesHateoas.cs" />
+    <Compile Include="Hateoas\Builders\UsuariosHateoas.cs" />
     <Compile Include="Hateoas\Builders\VehiculoHateoas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -352,6 +356,10 @@
     <Content Include="Scripts\jquery-3.7.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Downloads\IntegracionBanco %281%29\IntegracionBanco\IntegracionBanco.csproj">
+      <Project>{54480e3f-6175-503f-07f5-517192d55f71}</Project>
+      <Name>IntegracionBanco</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
       <Project>{cb2a0cdf-d22e-4ef0-9791-bfebd8f39f88}</Project>
       <Name>AccesoDatos</Name>

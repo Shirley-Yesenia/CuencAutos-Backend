@@ -9,13 +9,16 @@ using API_REST_GESTION.Hateoas.Builders;
 
 namespace API_REST_GESTION.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/v1/reservas")]
     public class ReservaController : ApiController
     {
         private readonly ReservaLogica logica = new ReservaLogica();
 
+        // ===========================================================
+        // GET /api/v1/reservas
+        // ===========================================================
         [HttpGet]
+        
         [Route("", Name = "GetReservas")]
         public IHttpActionResult ObtenerReservas()
         {
@@ -38,6 +41,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // GET /api/v1/reservas/{id}
+        // ===========================================================
         [HttpGet]
         [Route("{idReserva:int}", Name = "GetReservaById")]
         public IHttpActionResult ObtenerReservaPorId(int idReserva)
@@ -60,7 +66,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // GET /api/v1/reservas/usuario/{idUsuario}
+        // ===========================================================
         [HttpGet]
+        
         [Route("usuario/{idUsuario:int}", Name = "GetReservasByUsuario")]
         public IHttpActionResult ObtenerReservasPorUsuario(int idUsuario)
         {
@@ -83,7 +93,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // POST /api/v1/reservas
+        // ===========================================================
         [HttpPost]
+        
         [Route("", Name = "CreateReserva")]
         public IHttpActionResult CrearReserva([FromBody] ReservaDto reserva)
         {
@@ -116,7 +130,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // PUT /api/v1/reservas/{id}
+        // ===========================================================
         [HttpPut]
+
         [Route("{idReserva:int}", Name = "UpdateReserva")]
         public IHttpActionResult ActualizarReserva(int idReserva, [FromBody] ReservaDto reserva)
         {
@@ -139,7 +157,11 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // DELETE /api/v1/reservas/{id}
+        // ===========================================================
         [HttpDelete]
+        
         [Route("{idReserva:int}", Name = "DeleteReserva")]
         public IHttpActionResult EliminarReserva(int idReserva)
         {
@@ -157,6 +179,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // PATCH /api/v1/reservas/{id}/estado/{nuevoEstado}
+        // ===========================================================
         [HttpPatch]
         [Route("{idReserva:int}/estado/{nuevoEstado}", Name = "CambiarEstadoReserva")]
         public IHttpActionResult CambiarEstadoReserva(int idReserva, string nuevoEstado)
@@ -175,6 +200,9 @@ namespace API_REST_GESTION.Controllers
             }
         }
 
+        // ===========================================================
+        // GET /api/v1/reservas/ping
+        // ===========================================================
         [HttpGet]
         [Route("ping")]
         public IHttpActionResult Ping()

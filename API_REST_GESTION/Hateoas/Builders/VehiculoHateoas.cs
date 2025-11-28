@@ -22,7 +22,7 @@ namespace API_REST_GESTION.Hateoas.Builders
                 "DELETE");
 
             v.AddLink("imagenes",
-                url.Link("GetImagenesPorVehiculo", new { idVehiculo = v.IdVehiculo }),
+                url.Link("GetImagenesPorVehiculo", new { id = v.IdVehiculo }),
                 "GET");
 
             return v;

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 using AccesoDatos.DTO;
 using Logica;
-
 
 namespace WS_Gestion_Servicios
 {
@@ -16,29 +13,106 @@ namespace WS_Gestion_Servicios
     {
         private readonly PromocionLogica logica = new PromocionLogica();
 
-        [WebMethod(Description = "Lista promociones o descuentos vigentes.")]
+        // ==========================================================
+        // GET: Lista todas las promociones
+        // ==========================================================
+        [WebMethod(Description = "Lista todas las promociones registradas.")]
         public List<PromocionDto> ObtenerPromociones()
         {
-            return logica.ListarPromociones();
+            try
+            {
+                return logica.ListarPromociones();
+            }
+            catch
+            {
+                return null;
+            }
         }
 
+        // ==========================================================
+        // GET BY ID
+        // ==========================================================
+        [WebMethod(Description = "Obtiene una promoción por su ID.")]
+        public PromocionDto ObtenerPromocionPorId(int idPromocion)
+        {
+            try
+            {
+                return logica.ObtenerPromocionPorId(idPromocion);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        // ==========================================================
+        // POST: Crear promoción
+        // ==========================================================
         [WebMethod(Description = "Crea una nueva promoción.")]
-        public bool CrearPromocion(PromocionDto dto)
+        public PromocionDto CrearPromocion(PromocionDto dto)
         {
-            int resultado = logica.CrearPromocion(dto);
-            return resultado > 0; // devuelve true si se insertó al menos una fila
+            if (dto == null)
+                return null;
+
+            try
+            {
+                int idNuevo = logica.CrearPromocion(dto);
+
+                if (idNuevo <= 0)
+                    return null;
+
+                dto.IdPromocion = idNuevo;
+                return dto;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
+        // ==========================================================
+        // PUT: Actualizar promoción
+        // ==========================================================
         [WebMethod(Description = "Actualiza una promoción existente.")]
-        public bool ActualizarPromocion(PromocionDto dto)
+        public bool ActualizarPromocion(int idPromocion, PromocionDto dto)
         {
-            return logica.ActualizarPromocion(dto);
+            if (dto == null)
+                return false;
+
+            try
+            {
+                dto.IdPromocion = idPromocion;
+                return logica.ActualizarPromocion(dto);
+            }
+            catch
+            {
+                return false;
+            }
         }
 
+        // ==========================================================
+        // DELETE
+        // ==========================================================
         [WebMethod(Description = "Elimina una promoción por su ID.")]
         public bool EliminarPromocion(int idPromocion)
         {
-            return logica.EliminarPromocion(idPromocion);
+            try
+            {
+                return logica.EliminarPromocion(idPromocion);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        // ==========================================================
+        // PING
+        // ==========================================================
+        [WebMethod(Description = "Verifica si el servicio SOAP está operativo.")]
+        public string Ping()
+        {
+            return "Servicio SOAP de Promociones operativo ✔";
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Http.Routing;
 using AccesoDatos.DTO;
 
@@ -8,6 +7,7 @@ namespace API_REST_GESTION.Hateoas.Builders
     public class BloqueoVehiculosHateoas
     {
         private readonly UrlHelper _urlHelper;
+
         public BloqueoVehiculosHateoas(UrlHelper urlHelper)
         {
             _urlHelper = urlHelper;
@@ -39,9 +39,14 @@ namespace API_REST_GESTION.Hateoas.Builders
                         method = "DELETE"
                     },
                     new {
-                        rel = "vehiculo",
+                        rel = "bloqueos_del_mismo_vehiculo",
                         href = _urlHelper.Link("GetBloqueosPorVehiculo", new { idVehiculo = bloqueo.IdVehiculo }),
                         method = "GET"
+                    },
+                    new {
+                        rel = "crear_bloqueo",
+                        href = _urlHelper.Link("DefaultApi", new { }), // si deseas un POST self-documentado
+                        method = "POST"
                     }
                 }
             };

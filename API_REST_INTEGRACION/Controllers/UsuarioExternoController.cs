@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Net.Http;
+using System.Net;
 using System.Web.Http;
-using Newtonsoft.Json;
+using API_REST_INTEGRACION.Hateoas.Builders;
+using AccesoDatos.DTO;
 
 namespace API_REST_INTEGRACION.Controllers
 {
@@ -9,35 +10,46 @@ namespace API_REST_INTEGRACION.Controllers
     {
         [HttpPost]
         [Route("api/v1/integracion/autos/usuarios/externo")]
-        public IHttpActionResult Post(HttpRequestMessage request)
+        public IHttpActionResult Post([FromBody] UsuarioExternoDto nuevoUsuario)
         {
             try
             {
-                var contenido = request.Content.ReadAsStringAsync().Result;
-                if (string.IsNullOrWhiteSpace(contenido))
-                    return BadRequest("El cuerpo del request está vacío o mal formateado.");
-
-                var nuevoUsuario = JsonConvert.DeserializeObject<UsuarioExternoDto>(contenido);
+                // Validar si el objeto es nulo o tiene datos inválidos
                 if (nuevoUsuario == null)
-                    return BadRequest("No se pudo interpretar el JSON.");
+                {
+                    return BadRequest("El cuerpo de la solicitud está vacío o mal formateado.");
+                }
+
+                if (string.IsNullOrWhiteSpace(nuevoUsuario.Nombre) ||
+                    string.IsNullOrWhiteSpace(nuevoUsuario.Email))
+                {
+                    return BadRequest("El nombre y el correo son campos obligatorios.");
+                }
+
+                // Lógica de creación del usuario
+                int idGenerado = new Random().Next(1000, 9999); // ID generado aleatoriamente
 
                 var usuarioCreado = new
                 {
-                    IdUsuario = new Random().Next(1000, 9999),
+                    IdUsuario = idGenerado,
                     Nombre = $"{nuevoUsuario.Nombre} {nuevoUsuario.Apellido}",
                     Email = nuevoUsuario.Email,
-                    Estado = "Creado correctamente ✅"
+                    Estado = "Creado correctamente ✅",
+                    _links = new UsuarioExternoHateoas().Build(idGenerado) // Enlaces HATEOAS
                 };
 
+                // Retornar la respuesta exitosa
                 return Ok(usuarioCreado);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                // Retornar un error 500 en caso de excepciones no controladas
+                return InternalServerError(new Exception("Error al procesar el usuario: " + ex.Message));
             }
         }
     }
 
+    // DTO para representar al usuario externo
     public class UsuarioExternoDto
     {
         public int BookingUserId { get; set; }
